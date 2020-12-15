@@ -1,0 +1,2141 @@
+<?asciidoc-toc?><?asciidoc-numbered?><book xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" xml:id="graphical-installation_graphical-installation">
+<info>
+<title>Customizing your installation</title>
+<date>2020-09-04</date>
+<orgname>Red&#160;Hat</orgname>
+</info>
+<preface>
+<title/>
+<simpara>When installing Red&#160;Hat Enterprise&#160;Linux, you can customize location, software, and system settings and parameters, using the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+<simpara>The <emphasis role="strong">Installation Summary</emphasis> window contains the following categories:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">LOCALIZATION</emphasis>: You can configure Keyboard, Language Support, and Time and Date.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">SOFTWARE</emphasis>: You can configure Installation Source and Software Selection.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">SYSTEM</emphasis>: You can configure Installation Destination, Connect to Red Hat, KDUMP, Network and Host Name, and Security Policy.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">USER SETTINGS</emphasis>: You can configure a root password to log in to the administrator account that is used for system administration tasks, and create a user account to login to the system.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>A category has a different status depending on where it is in the installation program.</simpara>
+<table frame="all" rowsep="1" colsep="1">
+<title>Category status</title>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33.3333*"/>
+<colspec colname="col_2" colwidth="33.3333*"/>
+<colspec colname="col_3" colwidth="33.3334*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Category status</entry>
+<entry align="left" valign="top">Status</entry>
+<entry align="left" valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">Warning symbol type 1</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>Yellow triangle with an exclamation mark and red text</simpara></entry>
+<entry align="left" valign="top"><simpara>Requires attention before installation. For example, Network &amp; Host Name requires attention before you can register and download from the Content Delivery Network (CDN).</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><emphasis role="strong">Warning symbol type 2</emphasis></simpara></entry>
+<entry align="left" valign="top"><simpara>Grayed out and with a warning symbol (yellow triangle with an exclamation mark)</simpara></entry>
+<entry align="left" valign="top"><simpara>The installation program is configuring a category and you must wait for it to finish before accessing the window.</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<note>
+<simpara>A warning message is displayed at the bottom of the <emphasis role="strong">Installation Summary</emphasis> window and the <emphasis role="strong">Begin Installation</emphasis> button is disabled  until you configure all of the required categories.</simpara>
+</note>
+<simpara>This section contains information about customizing your Red&#160;Hat Enterprise&#160;Linux installation using the Graphical User Interface (GUI). The GUI is the preferred method of installing Red&#160;Hat Enterprise&#160;Linux when you boot the system from a CD, DVD, or USB flash drive, or from a network using PXE.</simpara>
+<note>
+<simpara>There may be some variance between the online help and the content that is published on the Customer Portal. For the latest updates, see the installation content on the Customer Portal.</simpara>
+</note>
+</preface>
+<chapter xml:id="installing-rhel-using-anaconda_graphical-installation">
+<title>Configuring language and location settings</title>
+<simpara>The installation program uses the language that you selected during installation.</simpara>
+<orderedlist numeration="arabic">
+<title>Prerequisites</title>
+<listitem>
+<simpara>You created installation media.</simpara>
+</listitem>
+<listitem>
+<simpara>You specified an installation source if you are using the Boot ISO image file.</simpara>
+</listitem>
+<listitem>
+<simpara>You booted the installation.</simpara>
+</listitem>
+</orderedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the left-hand pane of the <emphasis role="strong">Welcome to Red Hat Enterprise Linux</emphasis> window, select a language. Alternatively, type your preferred language into the <emphasis role="strong">Search</emphasis> field.</simpara>
+<note>
+<simpara>A language is pre-selected by default. If network access is configured, that is, if you booted from a network server instead of local media, the pre-selected language is determined by the automatic location detection feature of the <emphasis role="strong">GeoIP</emphasis> module. If you used the <literal role="option">inst.lang=</literal> option on the boot command line or in your PXE server configuration, then the language that you define with the boot option is selected.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>From the right-hand pane of the <emphasis role="strong">Welcome to Red Hat Enterprise Linux</emphasis> window, select a location specific to your region.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Continue</guibutton> to proceed to the <xref linkend="graphical-installation_graphical-installation"/> window.</simpara>
+<important>
+<simpara>If you are installing a pre-release version of Red&#160;Hat Enterprise&#160;Linux, a warning message is displayed about the pre-release status of the installation media. Click <guibutton>I want to proceed</guibutton> to continue with the installation, or <guibutton>I want to exit</guibutton> to quit the installation and reboot the system.</simpara>
+</important>
+</listitem>
+</orderedlist>
+<formalpara>
+<title>Additional resources</title>
+<para>For information about how to change language and location settings during the installation program, see <xref linkend="configuring-localization-settings_graphical-installation"/></para>
+</formalpara>
+</chapter>
+<chapter xml:id="configuring-localization-settings_graphical-installation">
+<title>Configuring localization options</title>
+<simpara>This section contains information about configuring your keyboard, language support, and time and date settings.</simpara>
+<important>
+<simpara>If you use a layout that cannot accept Latin characters, such as <emphasis role="strong">Russian</emphasis>, add the <emphasis role="strong">English (United States)</emphasis> layout and configure a keyboard combination to switch between the two layouts. If you select a layout that does not have Latin characters, you might be unable to enter a valid <literal role="systemitem">root</literal> password and user credentials later in the installation process. This might prevent you from completing the installation.</simpara>
+</important>
+<section xml:id="_configuring_keyboard_language_and_time_and_date_settings">
+<title>Configuring keyboard, language, and time and date settings</title>
+<note>
+<simpara>Keyboard, Language, and Time and Date Settings are configured by default as part of <xref linkend="installing-rhel-using-anaconda_graphical-installation"/>.
+To change any of the settings, complete the following steps, otherwise proceed to <xref linkend="configuring-software-settings_graphical-installation"/>.</simpara>
+</note>
+<orderedlist numeration="arabic">
+<title>Procedure: Configuring keyboard settings</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Keyboard</emphasis>. The default layout depends on the option selected in <xref linkend="installing-rhel-using-anaconda_graphical-installation"/>.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Click <guibutton>+</guibutton> to open the <emphasis role="strong">Add a Keyboard Layout</emphasis> window and change to a different layout.</simpara>
+</listitem>
+<listitem>
+<simpara>Select a layout by browsing the list or use the <emphasis role="strong">Search</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the required layout and click <guibutton>Add</guibutton>. The new layout appears under the default layout.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Options</guibutton> to optionally configure a keyboard switch that you can use to cycle between available layouts.  The <emphasis role="strong">Layout Switching Options</emphasis> window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>To configure key combinations for switching, select one or more key combinations and click <guibutton>OK</guibutton> to confirm your selection.</simpara>
+<note>
+<simpara>When you select a layout, click the <emphasis role="strong">Keyboard</emphasis> button to open a new dialog box that displays a visual representation of the selected layout.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the settings and return to <xref linkend="graphical-installation_graphical-installation"/>.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+<orderedlist numeration="arabic">
+<title>Procedure: Configuring language settings</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Language Support</emphasis>. The <emphasis role="strong">Language Support</emphasis> window opens. The left pane lists the available language groups. If at least one language from a group is configured, a check mark is displayed and the supported language is highlighted.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>From the left pane, click a group to select additional languages, and from the right pane, select regional options. Repeat this process for languages that you require.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the changes and return to <xref linkend="graphical-installation_graphical-installation"/>.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+<orderedlist numeration="arabic">
+<title>Procedure: Configuring time and date settings</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Time &amp; Date</emphasis>. The <emphasis role="strong">Time &amp; Date</emphasis> window opens.</simpara>
+<note>
+<simpara>The <emphasis role="strong">Time &amp; Date</emphasis> settings are configured by default based on the settings you selected in <xref linkend="installing-rhel-using-anaconda_graphical-installation"/>.</simpara>
+<simpara>The list of cities and regions come from the Time Zone Database (<literal role="package">tzdata</literal>) public domain that is maintained by the Internet Assigned Numbers Authority (IANA). Red&#160;Hat can not add cities or regions to this database. You can find more information at the <link xl:href="http://www.iana.org/time-zones">IANA official website</link>.</simpara>
+</note>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>From the <emphasis role="strong">Region</emphasis> drop-down menu, select a region.</simpara>
+<note>
+<simpara>Select <emphasis role="strong">Etc</emphasis> as your region to configure a time zone relative to Greenwich Mean Time (GMT) without setting your location to a specific region.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>From the <emphasis role="strong">City</emphasis> drop-down menu, select the city, or the city closest to your location in the same time zone.</simpara>
+</listitem>
+<listitem>
+<simpara>Toggle the <emphasis role="strong">Network Time</emphasis> switch to enable or disable network time synchronization using the Network Time Protocol (NTP).</simpara>
+<note>
+<simpara>Enabling the Network Time switch keeps your system time correct as long as the system can access the internet. By default, one NTP pool is configured; you can add a new option, or disable or remove the default options by clicking the <guibutton>gear wheel</guibutton> button next to the <guibutton>Network Time</guibutton> switch.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the changes and return to <xref linkend="graphical-installation_graphical-installation"/>.</simpara>
+<note>
+<simpara>If you disable network time synchronization, the controls at the bottom of the window become active, allowing you to set the time and date manually.</simpara>
+</note>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+</section>
+</chapter>
+<chapter xml:id="configuring-system-settings_graphical-installation">
+<title>Configuring system options</title>
+<simpara>This section contains information about configuring Installation Destination, KDUMP, Network and Host Name, and Security Policy.</simpara>
+<section xml:id="configuring-system-settings_configuring-system-settings">
+<title>Configuring installation destination</title>
+<simpara>Use the <emphasis role="strong">Installation Destination</emphasis> window to configure the storage options, for example, the disks that you want to use as the installation target for your Red&#160;Hat Enterprise&#160;Linux installation. You must select at least one disk.</simpara>
+<warning>
+<simpara>Back up your data if you plan to use a disk that already contains data. For example, if you want to shrink an existing Microsoft Windows partition and install Red&#160;Hat Enterprise&#160;Linux as a second system, or if you are upgrading a previous release of Red&#160;Hat Enterprise&#160;Linux. Manipulating partitions always carries a risk. For example, if the process is interrupted or fails for any reason data on the disk can be lost.</simpara>
+</warning>
+<important>
+<itemizedlist>
+<title>Special cases</title>
+<listitem>
+<simpara>Some BIOS types do not support booting from a RAID card. In these instances, the <literal>/boot</literal> partition must be created on a partition outside of the RAID array, such as on a separate hard drive. It is necessary to use an internal hard drive for partition creation with problematic RAID cards. A <literal>/boot</literal> partition is also necessary for software RAID setups.
+If you choose to partition your system automatically, you should manually edit your <literal>/boot</literal> partition.</simpara>
+</listitem>
+<listitem>
+<simpara>To configure the Red&#160;Hat Enterprise&#160;Linux boot loader to <emphasis>chain load</emphasis> from a different boot loader, you must specify the boot drive manually by clicking the <emphasis role="strong">Full disk summary and bootloader</emphasis> link from the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>When you install Red&#160;Hat Enterprise&#160;Linux on a system with both multipath and non-multipath storage devices, the automatic partitioning layout in the installation program creates volume groups that contain a mix of multipath and non-multipath devices. This defeats the purpose of multipath storage. It is recommended that you select either multipath or non-multipath devices on the <emphasis role="strong">Installation Destination</emphasis> window. Alternatively, proceed to manual partitioning.</simpara>
+</listitem>
+</itemizedlist>
+</important>
+<formalpara>
+<title>Prerequisite</title>
+<para>The <emphasis role="strong">Installation Summary</emphasis> window is open.</para>
+</formalpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Destination</emphasis>. The <emphasis role="strong">Installation Destination</emphasis> window opens.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>From the <emphasis role="strong">Local Standard Disks</emphasis> section, select the storage device that you require; a white check mark indicates your selection. Disks without a white check mark are not used during the installation process; they are ignored if you choose automatic partitioning, and they are not available in manual partitioning.</simpara>
+<note>
+<simpara>All locally available storage devices (SATA, IDE and SCSI hard drives, USB flash and external disks) are displayed under <emphasis role="strong">Local Standard Disks</emphasis>. Any storage devices connected after the installation program has started are not detected. If you use a removable drive to install Red&#160;Hat Enterprise&#160;Linux, your system is unusable if you remove the device.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Optional: Click the <emphasis role="strong">Refresh</emphasis> link in the lower right-hand side of the window if you want to configure additional local storage devices to connect new hard drives. The <emphasis role="strong">Rescan Disks</emphasis> dialog box opens.</simpara>
+<note>
+<simpara>All storage changes that you make during the installation are lost when you click <emphasis role="strong">Rescan Disks</emphasis>.</simpara>
+</note>
+<orderedlist numeration="lowerroman">
+<listitem>
+<simpara>Click <guibutton>Rescan Disks</guibutton> and wait until the scanning process completes.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>OK</guibutton> to return to the <emphasis role="strong">Installation Destination</emphasis> window. All detected disks including any new ones are displayed under the <emphasis role="strong">Local Standard Disks</emphasis> section.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Optional: To add a specialized storage device, click <guibutton>Add a disk&#8230;&#8203;</guibutton>.</simpara>
+<simpara>The <emphasis role="strong">Storage Device Selection</emphasis> window opens and lists all storage devices that the installation program has access to. For information about how to add a specialized disk, see <xref linkend="configuring-advanced-storage-options_storage-devices"/>.</simpara>
+</listitem>
+<listitem>
+<simpara>Optional: Under <emphasis role="strong">Storage Configuration</emphasis>, select the <emphasis role="strong">Automatic</emphasis> radio button.</simpara>
+<important>
+<simpara>Automatic partitioning is the <emphasis role="strong">recommended</emphasis> method of partitioning your storage. You can also configure custom partitioning, for more details see <xref linkend="manual-partitioning_graphical-installation"/></simpara>
+</important>
+</listitem>
+<listitem>
+<simpara>Optional: To reclaim space from an existing partitioning layout, select the <emphasis role="strong">I would like to make additional space available</emphasis> check box. For example, if a disk you want to use already contains a different operating system and you want to make this system&#8217;s partitions smaller to allow more room for Red&#160;Hat Enterprise&#160;Linux.</simpara>
+</listitem>
+<listitem>
+<simpara>Optional: Select <emphasis role="strong">Encrypt my data</emphasis> to encrypt all partitions except the ones needed to boot the system (such as <literal>/boot</literal>) using <emphasis>Linux Unified Key Setup</emphasis> (LUKS). Encrypting your hard drive is recommended.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Click <guibutton>Done</guibutton>. The <emphasis role="strong">Disk Encryption Passphrase</emphasis> dialog box opens.</simpara>
+<orderedlist numeration="lowerroman">
+<listitem>
+<simpara>Type your passphrase in the <emphasis role="strong">Passphrase</emphasis> and <emphasis role="strong">Confirm</emphasis> fields.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save Passphrase</guibutton> to complete disk encryption.</simpara>
+<warning>
+<simpara>If you lose the LUKS passphrase, any encrypted partitions and their data is completely inaccessible. There is no way to recover a lost passphrase. However, if you perform a Kickstart installation, you can save encryption passphrases and create backup encryption passphrases during the installation. See the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/"><emphasis>Performing an advanced RHEL installation</emphasis></link> document for information.</simpara>
+</warning>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Optional: Click the <emphasis role="strong">Full disk summary and bootloader</emphasis> link in the lower left-hand side of the window to select which storage device contains the boot loader. For more information, see <xref linkend="boot-loader-installation_configuring-system-settings"/>.</simpara>
+<note>
+<simpara>In most cases it is sufficient to leave the boot loader in the default location. Some configurations, for example, systems that require chain loading from another boot loader require the boot drive to be specified manually.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton>.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>If you selected <emphasis role="strong">automatic partitioning</emphasis> and <emphasis role="strong">I would like to make additional space available</emphasis>, or if there is not enough free space on your selected hard drives to install Red&#160;Hat Enterprise&#160;Linux, the <emphasis role="strong">Reclaim Disk Space</emphasis> dialog box opens when you click <guibutton>Done</guibutton>, and lists all configured disk devices and all partitions on those devices. The dialog box displays information about how much space the system needs for a minimal installation and how much space you have reclaimed.</simpara>
+<warning>
+<simpara>If you <emphasis role="strong">delete</emphasis> a partition, all data on that partition is lost. If you want to preserve your data, use the <emphasis role="strong">Shrink</emphasis> option, not the <emphasis role="strong">Delete</emphasis> option.</simpara>
+</warning>
+</listitem>
+<listitem>
+<simpara>Review the displayed list of available storage devices. The <emphasis role="strong">Reclaimable Space</emphasis> column shows how much space can be reclaimed from each entry.</simpara>
+</listitem>
+<listitem>
+<simpara>To reclaim space, select a disk or partition, and click either the <guibutton>Delete</guibutton> button to delete that partition, or all partitions on a selected disk, or click <guibutton>Shrink</guibutton> to use free space on a partition while preserving the existing data.</simpara>
+<note>
+<simpara>Alternatively, you can click <guibutton>Delete all</guibutton>, this deletes all existing partitions on all disks and makes this space available to Red&#160;Hat Enterprise&#160;Linux. Existing data on all disks is lost.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Reclaim space</guibutton> to apply the changes and return to <xref linkend="graphical-installation_graphical-installation"/>.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+<important>
+<simpara>No disk changes are made until you click <guibutton>Begin Installation</guibutton> on the <emphasis role="strong">Installation Summary</emphasis> window. The <emphasis role="strong">Reclaim Space</emphasis> dialog only marks partitions for resizing or deletion; no action is performed.</simpara>
+</important>
+<section xml:id="boot-loader-installation_configuring-system-settings">
+<title>Configuring boot loader</title>
+<simpara>Red&#160;Hat Enterprise&#160;Linux uses GRand Unified Bootloader version 2 (<emphasis role="strong"><phrase role="application">GRUB2</phrase></emphasis>) as the boot loader for AMD64 and Intel 64, IBM Power Systems, and ARM. For IBM&#160;Z, the <emphasis role="strong">zipl</emphasis> boot loader is used.</simpara>
+<simpara>The boot loader is the first program that runs when the system starts and is responsible for loading and transferring control to an operating system. <emphasis role="strong"><phrase role="application">GRUB2</phrase></emphasis> can boot any compatible operating system (including Microsoft Windows) and can also use chain loading to transfer control to other boot loaders for unsupported operating systems.</simpara>
+<warning>
+<simpara>Installing <emphasis role="strong"><phrase role="application">GRUB2</phrase></emphasis> may overwrite your existing boot loader.</simpara>
+</warning>
+<simpara>If an operating system is already installed, the Red&#160;Hat Enterprise&#160;Linux installation program attempts to automatically detect and configure the boot loader to start the other operating system. If the boot loader is not detected, you can manually configure any additional operating systems after you finish the installation.</simpara>
+<simpara>If you are installing a Red&#160;Hat Enterprise&#160;Linux system with more than one disk, you might want to manually specify the disk where you want to install the boot loader.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Destination</emphasis> window, click the <emphasis role="strong">Full disk summary and bootloader</emphasis> link. The <emphasis role="strong">Selected Disks</emphasis> dialog box opens.</simpara>
+<simpara>The boot loader is installed on the device of your choice, or on a UEFI system; the <emphasis role="strong">EFI system partition</emphasis> is created on the target device during guided partitioning.</simpara>
+</listitem>
+<listitem>
+<simpara>To change the boot device, select a device from the list and click <guibutton>Set as Boot Device</guibutton>. You can set only one device as the boot device.</simpara>
+</listitem>
+<listitem>
+<simpara>To disable a new boot loader installation, select the device currently marked for boot and click <guibutton>Do not install boot loader</guibutton>. This ensures <emphasis role="strong"><phrase role="application">GRUB2</phrase></emphasis> is not installed on any device.</simpara>
+</listitem>
+</orderedlist>
+<warning>
+<simpara>If you choose not to install a boot loader, you cannot boot the system directly and you must use another boot method, such as a standalone commercial boot loader application. Use this option only if you have another way to boot your system.</simpara>
+</warning>
+<simpara>The boot loader may also require a special partition to be created, depending on if your system uses BIOS or UEFI firmware, or if the boot drive has a <emphasis>GUID Partition Table</emphasis> (GPT) or a <emphasis role="strong">Master Boot Record</emphasis> (MBR, also known as <literal>msdos</literal>) label. If you use automatic partitioning, the installation program creates the partition.</simpara>
+</section>
+</section>
+<section xml:id="configuring-kdump_configuring-system-settings">
+<title>Configuring Kdump</title>
+<simpara><emphasis role="strong"><phrase role="application">Kdump</phrase></emphasis> is a kernel crash-dumping mechanism. In the event of a system crash, <emphasis role="strong">Kdump</emphasis> captures the contents of the system memory at the moment of failure. This captured memory can be analyzed to find the cause of the crash. If <emphasis role="strong"><phrase role="application">Kdump</phrase></emphasis> is enabled, it must have a small portion of the system&#8217;s memory (RAM) reserved to itself. This reserved memory is not accessible to the main kernel.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Kdump</emphasis>. The <emphasis role="strong">Kdump</emphasis> window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Enable kdump</emphasis> check box.</simpara>
+</listitem>
+<listitem>
+<simpara>Select either the <emphasis role="strong">Automatic</emphasis> or <emphasis role="strong">Manual</emphasis> memory reservation setting.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>If you select <emphasis role="strong">Manual</emphasis>, enter the amount of memory (in megabytes) that you want to reserve in the <emphasis role="strong">Memory to be reserved</emphasis> field using the <emphasis role="strong">+</emphasis> and <emphasis role="strong">-</emphasis> buttons. The <emphasis role="strong">Usable System Memory</emphasis> readout below the reservation input field shows how much memory is accessible to your main system after reserving the amount of RAM that you select.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the settings and return to <xref linkend="graphical-installation_graphical-installation"/>.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<simpara>The amount of memory that you reserve is determined by your system architecture (AMD64 and Intel&#160;64 have different requirements than IBM Power) as well as the total amount of system memory. In most cases, automatic reservation is satisfactory.</simpara>
+</note>
+<important>
+<simpara>Additional settings, such as the location where kernel crash dumps will be saved, can only be configured after the installation using either the <emphasis role="strong"><phrase role="application">system-config-kdump</phrase></emphasis> graphical interface, or manually in the <literal>/etc/kdump.conf</literal> configuration file.</simpara>
+</important>
+</section>
+<section xml:id="network-hostname_configuring-system-settings">
+<title>Configuring network and host name options</title>
+<simpara>Use the <literal>Network and Host name</literal> window to configure network interfaces. Options that you select here are available both during the installation for tasks such as downloading packages from a remote location, and on the installed system.</simpara>
+<section xml:id="configuring-network-and-host-name_network-hostname">
+<title>Configuring network and host name</title>
+<simpara>Follow the steps in this procedure to configure your network and host name.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <guibutton>Network and Host Name</guibutton>*.</simpara>
+</listitem>
+<listitem>
+<simpara>From the list in the left-hand pane, select an interface. The details are displayed in the right-hand pane.</simpara>
+</listitem>
+<listitem>
+<simpara>Toggle the <guibutton>ON/OFF</guibutton> switch to enable or disable the selected interface.</simpara>
+<note>
+<simpara>The installation program automatically detects locally accessible interfaces, and you cannot add or remove them manually.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>+</guibutton> to add a virtual network interface, which can be either: Team, Bond, Bridge, or VLAN.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>-</guibutton> to remove a virtual interface.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Configure</guibutton> to change settings such as IP addresses, DNS servers, or routing configuration for an existing interface (both virtual and physical).</simpara>
+</listitem>
+<listitem>
+<simpara>Type a host name for your system in the <emphasis role="strong">Host Name</emphasis> field.</simpara>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>There are several types of network device naming standards used to identify network devices with persistent names, for example, <literal>em1</literal> and <literal>wl3sp0</literal>. For information about these standards, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/"><emphasis>Configuring and managing networking</emphasis></link> document.</simpara>
+</listitem>
+<listitem>
+<simpara>The host name can be either a fully-qualified domain name (FQDN) in the format <emphasis>hostname.domainname</emphasis>, or a short host name with no domain name. Many networks have a Dynamic Host Configuration Protocol (DHCP) service that automatically supplies connected systems with a domain name. To allow the DHCP service to assign the domain name to this machine, specify only the short host name. The value <literal>localhost.localdomain</literal> means that no specific static host name for the target system is configured, and the actual host name of the installed system is configured during the processing of the network configuration, for example, by <literal>NetworkManager</literal> using DHCP or DNS.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Apply</guibutton> to apply the host name to the environment.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="adding-a-virtual-network-interface_network-hostname">
+<title>Adding a virtual network interface</title>
+<simpara>Follow the steps in this procedure to add a virtual network interface.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Network &amp; Host name</emphasis> window, click the <guibutton>+</guibutton> button to add a virtual network interface. The <emphasis role="strong">Add a device</emphasis> dialog opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Select one of the four available types of virtual interfaces:</simpara>
+<informalexample>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Bond</emphasis>: NIC (<emphasis>Network Interface Controller</emphasis>) Bonding, a method to bind multiple physical network interfaces together into a single bonded channel.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Bridge</emphasis>: Represents NIC Bridging, a method to connect multiple separate networks into one aggregate network.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Team</emphasis>: NIC Teaming, a new implementation to aggregate links, designed to provide a small kernel driver to implement the fast handling of packet flows, and various applications to do everything else in user space.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Vlan</emphasis> (<emphasis>Virtual LAN</emphasis>): A method to create multiple distinct broadcast domains which are mutually isolated.</simpara>
+</listitem>
+</itemizedlist>
+</informalexample>
+</listitem>
+<listitem>
+<simpara>Select the interface type and click <guibutton>Add</guibutton>. An editing interface dialog box opens, allowing you to edit any available settings for your chosen interface type. For more information see <xref linkend="editing-network-interface-configuration_network-hostname"/>.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save</guibutton> to confirm the virtual interface settings and return to the <emphasis role="strong">Network &amp; Host name</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<simpara>If you need to change the settings of a virtual interface, select the interface and click <guibutton>Configure</guibutton>.</simpara>
+</note>
+</section>
+<section xml:id="editing-network-interface-configuration_network-hostname">
+<title>Editing network interface configuration</title>
+<simpara>This section contains information about the most important settings for a typical wired connection used during installation. Configuration of other types of networks is broadly similar, although the specific configuration parameters might be different.</simpara>
+<note>
+<simpara>On IBM&#160;Z, you cannot add a new connection as the network subchannels need to be grouped and set online beforehand, and this is currently done only in the booting phase.</simpara>
+</note>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>To configure a network connection manually, select the interface from the <emphasis role="strong">Network and Host name</emphasis> window and click <guibutton>Configure</guibutton>.</simpara>
+<simpara>An editing dialog specific to the selected interface opens.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<simpara>The  options present depend on the connection type - the available options are slightly different depending on whether the connection type is a physical interface (wired or wireless network interface controller) or a virtual interface (Bond, Bridge, Team, or Vlan) that was previously configured in <xref linkend="adding-a-virtual-network-interface_network-hostname"/>.</simpara>
+</note>
+</section>
+<section xml:id="enabling-or-disabling-the-interface-connection_network-hostname">
+<title>Enabling or Disabling the Interface Connection</title>
+<simpara>Follow the steps in this procedure to enable or disable an interface connection.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Click the <emphasis role="strong">General</emphasis> tab.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Connect automatically with priority</emphasis> check box to enable connection by default. Keep the default priority setting at <literal>0</literal>.</simpara>
+<important>
+<itemizedlist>
+<listitem>
+<simpara>When enabled on a wired connection, the system automatically connects during startup or reboot. On a wireless connection, the interface attempts to connect to any known wireless networks in range. For further information about NetworkManager, including the <literal>nm-connection-editor</literal> tool, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index?lb_target=production"><emphasis>Configuring and managing networking</emphasis></link> document.</simpara>
+</listitem>
+<listitem>
+<simpara>You can enable or disable all users on the system from connecting to this network using the <emphasis role="strong">All users may connect to this network</emphasis> option. If you disable this option, only <literal role="systemitem">root</literal> will be able to connect to this network.</simpara>
+</listitem>
+<listitem>
+<simpara>It is not possible to only allow a specific user other than <literal role="systemitem">root</literal> to use this interface, as no other users are created at this point during the installation. If you need a connection for a different user, you must configure it after the installation.</simpara>
+</listitem>
+</itemizedlist>
+</important>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save</guibutton> to apply the changes and return to the <emphasis role="strong">Network and Host name</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="setting-up-static-ipv4-or-ipv6-settings_network-hostname">
+<title>Setting up Static IPv4 or IPv6 Settings</title>
+<simpara>By default, both IPv4 and IPv6 are set to automatic configuration depending on current network settings. This means that addresses such as the local IP address, DNS address, and other settings are detected automatically when the interface connects to a network. In many cases, this is sufficient, but you can also provide static configuration in the <emphasis role="strong">IPv4 Settings</emphasis> and <emphasis role="strong">IPv6 Settings</emphasis> tabs. Complete the following steps to configure IPv4 or IPv6 settings:</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>To set static network configuration, navigate to one of the IPv Settings tabs and from the <emphasis role="strong">Method</emphasis> drop-down menu, select a method other than <emphasis role="strong">Automatic</emphasis>, for example, <emphasis role="strong">Manual</emphasis>.  The <emphasis role="strong">Addresses</emphasis> pane is enabled.</simpara>
+<note>
+<simpara>In the <emphasis role="strong">IPv6 Settings</emphasis> tab, you can also set the method to <emphasis role="strong">Ignore</emphasis> to disable IPv6 on this interface.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add</guibutton> and enter your address settings.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the IP addresses in the <emphasis role="strong">Additional DNS servers</emphasis> field; it accepts one or more IP addresses of DNS servers, for example, <literal role="literal">10.0.0.1,10.0.0.8</literal>.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Require IPv<emphasis>X</emphasis> addressing for this connection to complete</emphasis> check box.</simpara>
+<note>
+<simpara>Select this option in the <emphasis role="strong">IPv4 Settings</emphasis> or <emphasis role="strong">IPv6 Settings</emphasis> tabs to allow this connection only if IPv4 or IPv6 was successful. If this option remains disabled for both IPv4 and IPv6, the interface is able to connect if configuration succeeds on either IP protocol.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save</guibutton> to apply the changes and return to the <emphasis role="strong">Network &amp; Host name</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="configuring-routes_network-hostname">
+<title>Configuring Routes</title>
+<simpara>Complete the following steps to configure routes.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>In the <emphasis role="strong">IPv4 Settings</emphasis> and <emphasis role="strong">IPv6 Settings</emphasis> tabs, click <guibutton>Routes</guibutton> to configure routing settings for a specific IP protocol on an interface. An editing routes dialog specific to the interface opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add</guibutton> to add a route.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Ignore automatically obtained routes</emphasis> check box to configure at least one static route and to disable all routes not specifically configured.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Use this connection only for resources on its network</emphasis> check box to prevent the connection from becoming the default route.</simpara>
+<note>
+<simpara>This option can be selected even if you did not configure any static routes. This route is used only to access certain resources, such as intranet pages that require a local or VPN connection. Another (default) route is used for publicly available resources. Unlike the additional routes configured, this setting is transferred to the installed system. This option is useful only when you configure more than one interface.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>OK</guibutton> to save your settings and return to the editing routes dialog that is specific to the interface.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save</guibutton> to apply the settings and return to the <emphasis role="strong">Network and Host Name</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="additional-resources_network-hostname">
+<title>Additional resources</title>
+<itemizedlist>
+<listitem>
+<simpara>To learn more about network configuration after installation, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index/"><emphasis>Configuring and managing networking</emphasis></link> document.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section xml:id="security-policy_configuring-system-settings">
+<title>Configuring Security Policy</title>
+<simpara>This section contains information about the Red&#160;Hat Enterprise&#160;Linux 8.3 Beta security policy and how to configure it for use on your system.</simpara>
+<section xml:id="about-security-policy_security-policy">
+<title>About security policy</title>
+<simpara>The Red&#160;Hat Enterprise&#160;Linux security policy adheres to restrictions and recommendations (compliance policies) defined by the Security Content Automation Protocol (SCAP) standard. The packages are automatically installed. However, by default, no policies are enforced and therefore no checks are performed during or after installation unless specifically configured.</simpara>
+<simpara>Applying a security policy is not a mandatory feature of the installation program. If you apply a security policy to the system, it is installed using restrictions and recommendations defined in the profile that you selected. The <emphasis role="strong"><phrase role="package">openscap-scanner</phrase></emphasis> package is added to your package selection, providing a preinstalled tool for compliance and vulnerability scanning. After the installation finishes, the system is automatically scanned to verify compliance. The results of this scan are saved to the <literal>/root/openscap_data</literal> directory on the installed system. You can also load additional profiles from an HTTP, HTTPS, or FTP server.</simpara>
+</section>
+<section xml:id="configuring-security-policy_security-policy">
+<title>Configuring a security policy</title>
+<simpara>Complete the following steps to configure a security policy.</simpara>
+<formalpara>
+<title>Prerequisite</title>
+<para>The <emphasis role="strong">Installation Summary</emphasis> window is open.</para>
+</formalpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Security Policy</emphasis>. The <emphasis role="strong">Security Policy</emphasis> window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>To enable security policies on the system, toggle the <emphasis role="strong">Apply security policy</emphasis> switch to <emphasis role="strong">ON</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Select one of the profiles listed in the top pane.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Select profile</guibutton>.</simpara>
+<simpara>Profile changes that you must apply before installation appear in the bottom pane.</simpara>
+<note>
+<simpara>The default profiles do not require changes before installation. However, loading a custom profile can require pre-installation tasks.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Change content</guibutton> to use a custom profile.
+A separate window opens allowing you to enter a URL for valid security content.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Click <guibutton>Fetch</guibutton> to retrieve the URL.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Use SCAP Security Guide</guibutton> to return to the <emphasis role="strong">Security Policy</emphasis> window.</simpara>
+<note>
+<simpara>You can load custom profiles from an <emphasis role="strong">HTTP</emphasis>, <emphasis role="strong">HTTPS</emphasis>, or <emphasis role="strong">FTP</emphasis> server. Use the full address of the content including the protocol, such as <emphasis role="strong">http://</emphasis>. A network connection must be active before you can load a custom profile. The installation program detects the content type automatically.</simpara>
+</note>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the settings and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="related-information-security-policy">
+<title>Related information</title>
+<itemizedlist>
+<listitem>
+<simpara><literal role="literal">scap-security-guide(8)</literal> - The manual page for the <literal role="literal">scap-security-guide</literal> project contains information about SCAP security profiles, including examples on how to utilize the provided benchmarks using the OpenSCAP utility.</simpara>
+</listitem>
+<listitem>
+<simpara>Red&#160;Hat Enterprise&#160;Linux security compliance information is available in the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/security_hardening/index/"><emphasis>Security hardening</emphasis></link> document.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+</chapter>
+<chapter xml:id="configuring-software-settings_graphical-installation">
+<title>Configuring software options</title>
+<simpara>This section contains information about configuring Red Hat Content Delivery Network (CDN), your installation source and software selection settings, and activating a repository.</simpara>
+<section xml:id="connect-to-red-hat_configuring-software-settings">
+<title>Configuring Connect to Red Hat</title>
+<simpara>The Red Hat Content Delivery Network (CDN), available from cdn.redhat.com, is a geographically distributed series of static web servers that contain content and errata that is consumed by systems. The content can be consumed directly, such as using a system registered to Red Hat Subscription Management. The CDN is protected by x.509 certificate authentication to ensure that only valid users have access. When a system is registered to Red Hat Subscription Management, the attached subscriptions govern which subset of the CDN the system can access.</simpara>
+<simpara>Registering and installing RHEL from the CDN provides the following benefits:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>The CDN installation method supports the Boot ISO and the Binary DVD ISO image files. However, the use of the smaller Boot ISO image file is recommended as it consumes less space than the larger Binary DVD ISO image file.</simpara>
+</listitem>
+<listitem>
+<simpara>The CDN uses the latest packages resulting in a fully up-to-date system right after installation. There is no requirement to install package updates immediately after installation as is often the case when using the Binary DVD ISO image file.</simpara>
+</listitem>
+<listitem>
+<simpara>Integrated support for connecting to Red Hat Insights and enabling System Purpose.</simpara>
+</listitem>
+</itemizedlist>
+<section xml:id="system_purposes-adoc_connect-to-red-hat">
+<title>Introduction to System Purpose</title>
+<simpara>System Purpose is an optional but recommended feature of the Red&#160;Hat Enterprise&#160;Linux installation. You use System Purpose to record the intended use of a Red&#160;Hat Enterprise&#160;Linux 8 system, and ensure that the entitlement server auto-attaches the most appropriate subscription to your system.</simpara>
+<simpara>Benefits include:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>In-depth system-level information for system administrators and business operations.</simpara>
+</listitem>
+<listitem>
+<simpara>Reduced overhead when determining why a system was procured and its intended purpose.</simpara>
+</listitem>
+<listitem>
+<simpara>Improved customer experience of Subscription Manager auto-attach as well as automated discovery and reconciliation of system usage.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>You can enter System Purpose data in one of the following ways:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>During image creation</simpara>
+</listitem>
+<listitem>
+<simpara>During a GUI installation when using <emphasis role="strong">Connect to Red Hat</emphasis> to register your system and attach your Red Hat subscription</simpara>
+</listitem>
+<listitem>
+<simpara>During a Kickstart installation when using Kickstart automation scripts</simpara>
+</listitem>
+<listitem>
+<simpara>After installation using the <emphasis role="strong">syspurpose</emphasis> command-line (CLI) tool</simpara>
+</listitem>
+</itemizedlist>
+<simpara>To record the intended purpose of your system, you can configure the following components of System Purpose. The selected values are used by the entitlement server upon registration to attach the most suitable subscription for your system.</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Role</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>Red Hat Enterprise Linux Server</simpara>
+</listitem>
+<listitem>
+<simpara>Red Hat Enterprise Linux Workstation</simpara>
+</listitem>
+<listitem>
+<simpara>Red Hat Enterprise Linux Compute Node</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Service Level Agreement</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>Premium</simpara>
+</listitem>
+<listitem>
+<simpara>Standard</simpara>
+</listitem>
+<listitem>
+<simpara>Self-Support</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Usage</emphasis></simpara>
+<itemizedlist>
+<listitem>
+<simpara>Production</simpara>
+</listitem>
+<listitem>
+<simpara>Development/Test</simpara>
+</listitem>
+<listitem>
+<simpara>Disaster Recovery</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<itemizedlist>
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about Image Builder, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/composing_a_customized_rhel_system_image/index/"><emphasis>Composing a customized RHEL system image</emphasis></link> document.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about Kickstart, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/"><emphasis>Performing an advanced RHEL installation</emphasis></link> document.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about Subscription Manager, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html-single/rhsm/index/"><emphasis>Using and Configuring Red Hat Subscription Manager</emphasis></link> document.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="configuring-connect-to-redhat_connect-to-red-hat">
+<title>Configuring Connect to Red Hat options</title>
+<simpara>Use the following procedure to configure the Connect to Red Hat options in the GUI.</simpara>
+<note>
+<simpara>You can register to the CDN using either your Red Hat account or your activation key details.</simpara>
+</note>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Click <emphasis role="strong">Account</emphasis>.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Enter your Red Hat Customer Portal username and password details.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Optional: Click <emphasis role="strong">Activation Key</emphasis>.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Enter your organization ID and activation key. You can enter more than one activation key, separated by a comma, as long as the activation keys are registered to your subscription.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Set System Purpose</emphasis> check box. System Purpose enables the entitlement server to determine and automatically attach the most appropriate subscription to satisfy the intended use of your RHEL 8 system.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Select the required <emphasis role="strong">Role</emphasis>, <emphasis role="strong">SLA</emphasis>, and <emphasis role="strong">Usage</emphasis> from the corresponding drop-down lists.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>The <emphasis role="strong">Connect to Red Hat Insights</emphasis> check box is enabled by default. Clear the check box if you do not want to connect to Red Hat Insights.</simpara>
+<note>
+<simpara>Red Hat Insights is a Software-as-a-Service (SaaS) offering that provides continuous, in-depth analysis of registered Red Hat-based systems to proactively identify threats to security, performance and stability across physical, virtual and cloud environments, and container deployments.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Optional: Expand <emphasis role="strong">Options</emphasis>.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Select the <emphasis role="strong">Use HTTP proxy</emphasis> check box if your network environment only allows external Internet access or access to content servers through an HTTP proxy. Clear the <emphasis role="strong">Use HTTP proxy</emphasis> check box if an HTTP proxy is not used.</simpara>
+</listitem>
+<listitem>
+<simpara>If you are running Satellite Server or performing internal testing, select the <emphasis role="strong">Custom server URL</emphasis> and  <emphasis role="strong">Custom base URL</emphasis> check boxes and enter the required details.</simpara>
+<important>
+<itemizedlist>
+<listitem>
+<simpara>The <emphasis role="strong">Custom server URL</emphasis> field does not require the HTTP protocol, for example <literal>nameofhost.com</literal>. However, the <emphasis role="strong">Custom base URL</emphasis> field requires the HTTP protocol.</simpara>
+</listitem>
+<listitem>
+<simpara>To change the <emphasis role="strong">Custom base URL</emphasis> after registration, you must unregister, provide the new details, and then re-register.</simpara>
+</listitem>
+</itemizedlist>
+</important>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Register</guibutton> to register the system. When the system is successfully registered and subscriptions are attached, the <emphasis role="strong">Connect to Red Hat</emphasis> window displays the attached subscription details.</simpara>
+<note>
+<simpara>Depending on the amount of subscriptions, the registration and attachment process might take up to a minute to complete.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>A <emphasis>Registered</emphasis> message is displayed under <emphasis role="strong">Connect to Red Hat</emphasis>.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="how-the-default-installation-repo-works-in-cdn_connect-to-red-hat">
+<title>Installation source repository after system registration</title>
+<simpara>The installation source repository used after system registration is dependent on how the system was booted.</simpara>
+<variablelist>
+<varlistentry>
+<term>System booted from the Boot ISO or the Binary DVD ISO image file</term>
+<listitem>
+<simpara>If you booted the RHEL installation using either the <literal>Boot ISO</literal> or the <literal>Binary DVD ISO</literal> image file with the default boot parameters, the installation program automatically switches the installation source repository to the CDN after registration.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>System booted with the <literal>inst.repo=&lt;URL&gt;</literal> boot parameter</term>
+<listitem>
+<simpara>If you booted the RHEL installation with the <literal>inst.repo=&lt;URL&gt;</literal> boot parameter, the installation program does not automatically switch the installation source repository to the CDN after registration. If you want to use the CDN to install RHEL, you must manually switch the installation source repository to the CDN by selecting the <emphasis role="strong">Red Hat CDN</emphasis> option in the <emphasis role="strong">Installation Source</emphasis> window of the graphical installation. If you do not manually switch to the CDN, the installation program installs the packages from the repository specified on the kernel command line.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<important>
+<itemizedlist>
+<listitem>
+<simpara>You can switch the installation source repository to the CDN using the <literal>rhsm</literal> Kickstart command only if you do not specify an installation source using <literal>inst.repo=</literal> on the kernel command line or the <literal>url</literal> command in the Kickstart file. You must use <literal>inst.stage2=&lt;URL&gt;</literal> on the kernel command line to fetch the installation image, but not specify the installation source.</simpara>
+</listitem>
+<listitem>
+<simpara>An installation source URL specified using a boot option or included in a Kickstart file takes precedence over the CDN, even if the Kickstart file contains the <literal>rhsm</literal> command with valid credentials.  The system is registered, but it is installed from the URL installation source. This ensures that earlier installation processes operate as normal.</simpara>
+</listitem>
+</itemizedlist>
+</important>
+</section>
+<section xml:id="verifying-registration-from-cdn-using-gui_connect-to-red-hat">
+<title>Verifying your system registration from the CDN</title>
+<simpara>Use this procedure to verify that your system is registered to the CDN using the GUI.</simpara>
+<warning>
+<simpara>You can only verify your registration from the CDN if you have <emphasis role="strong">not</emphasis> clicked the <emphasis role="strong">Begin Installation</emphasis> button from the <emphasis role="strong">Installation Summary</emphasis> window. Once the <emphasis role="strong">Begin Installation</emphasis> button is clicked, you cannot return to the Installation Summary window to verify your registration.</simpara>
+</warning>
+<itemizedlist>
+<title>Prerequisite</title>
+<listitem>
+<simpara>You have completed the registration process as documented in the <xref linkend="register-and-install-from-cdn-using-gui_register-and-install-from-cdn"/> and <emphasis>Registered</emphasis> is displayed under <emphasis role="strong">Connect to Red Hat</emphasis> on the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, select <emphasis role="strong">Connect to Red Hat</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>The window opens and displays a registration summary:</simpara>
+<variablelist>
+<varlistentry>
+<term>Method</term>
+<listitem>
+<simpara>The registered account name or activation keys are displayed.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>System Purpose</term>
+<listitem>
+<simpara>If set, the role, SLA, and usage details are displayed.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Insights</term>
+<listitem>
+<simpara>If enabled, the Insights details are displayed.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Number of subscriptions</term>
+<listitem>
+<simpara>The number of subscriptions attached are displayed.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+<listitem>
+<simpara>Verify that the registration summary matches the details that were entered.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="unregistering-your-system-from-cdn-using-gui_connect-to-red-hat">
+<title>Unregistering your system from the CDN</title>
+<simpara>Use this procedure to unregister your system from the CDN using the GUI.</simpara>
+<warning>
+<itemizedlist>
+<listitem>
+<simpara>You can unregister from the CDN if you have <emphasis role="strong">not</emphasis> clicked the <guibutton>Begin Installation</guibutton> button from the <emphasis role="strong">Installation Summary</emphasis> window. Once the <guibutton>Begin Installation</guibutton> button is clicked, you cannot return to the Installation Summary window to unregister your registration.</simpara>
+</listitem>
+<listitem>
+<simpara>When unregistering, the installation program switches to the first available repository, in the following order:</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>The URL used in the inst.repo=&lt;URL&gt; boot parameter on the kernel command line.</simpara>
+</listitem>
+<listitem>
+<simpara>An automatically detected repository on the installation media (USB or DVD).</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</itemizedlist>
+</warning>
+<itemizedlist>
+<title>Prerequisite</title>
+<listitem>
+<simpara>You have completed the registration process as documented in the <xref linkend="register-and-install-from-cdn-using-gui_register-and-install-from-cdn"/> and <emphasis>Registered</emphasis> is displayed under <emphasis role="strong">Connect to Red Hat</emphasis> on the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, select <emphasis role="strong">Connect to Red Hat</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>The <emphasis role="strong">Connect to Red Hat</emphasis> window opens and displays a registration summary:</simpara>
+<variablelist>
+<varlistentry>
+<term>Method</term>
+<listitem>
+<simpara>The registered account name or activation keys used are displayed.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>System Purpose</term>
+<listitem>
+<simpara>If set, the role, SLA, and usage details are displayed.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Insights</term>
+<listitem>
+<simpara>If enabled, the Insights details are displayed.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Number of subscriptions</term>
+<listitem>
+<simpara>The number of subscriptions attached are displayed.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Unregister</guibutton> to remove the registration from the CDN. The original registration details are displayed with a <emphasis role="strong">Not registered</emphasis> message displayed in the lower-middle part of the window.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Connect to Red Hat</emphasis> displays a <emphasis>Not registered</emphasis> message, and <emphasis role="strong">Software Selection</emphasis> displays a <emphasis>Red Hat CDN requires registration</emphasis> message.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<simpara>After unregistering, it is possible to register your system again. Click <emphasis role="strong">Connect to Red Hat</emphasis>. The previously entered details are populated. Edit the original details, or update the fields based on the account, purpose, and connection. Click <guibutton>Register</guibutton> to complete.</simpara>
+</note>
+<itemizedlist xml:id="related-information-connect-to-red-hat">
+<title>Related information</title>
+<listitem>
+<simpara>For information about Red Hat Insights, see the <link xl:href="https://access.redhat.com/documentation/or-in/red_hat_insights/1.0/"><emphasis>Red Hat Insights product documentation</emphasis></link>.</simpara>
+</listitem>
+<listitem>
+<simpara>For information about Activation Keys, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/using_red_hat_subscription_management/activation_keys_con"><emphasis>Understanding Activation Keys</emphasis></link> chapter of the <emphasis>Using Red Hat Subscription Management</emphasis> document.</simpara>
+</listitem>
+<listitem>
+<simpara>For information about how to set up an HTTP proxy for Subscription Manager, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html-single/rhsm/index#repos-proxy"><emphasis>Using an HTTP proxy</emphasis></link> chapter of the <emphasis>Using and Configuring Red Hat Subscription Manager</emphasis> document.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section xml:id="configuring-installation-source_configuring-software-settings">
+<title>Configuring installation source</title>
+<simpara>Complete the steps in this procedure to configure an installation source from either auto-detected installation media, Red Hat CDN, or the network.</simpara>
+<note>
+<simpara>When the <emphasis role="strong">Installation Summary</emphasis> window first opens, the installation program attempts to configure an installation source based on the type of media that was used to boot the system. The full Red&#160;Hat Enterprise&#160;Linux Server DVD configures the source as local media.</simpara>
+</note>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>You have downloaded the full installation image.</simpara>
+</listitem>
+<listitem>
+<simpara>You have created a bootable physical media.</simpara>
+</listitem>
+<listitem>
+<simpara>The <emphasis role="strong">Installation Summary</emphasis> window is open.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Source</emphasis>. The <emphasis role="strong">Installation Source</emphasis> window opens.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Review the <emphasis role="strong">Auto-detected installation media</emphasis> section to verify the details. This option is selected by default if you started the installation program from media containing an installation source, for example, a DVD.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Verify</guibutton> to check the media integrity.</simpara>
+</listitem>
+<listitem>
+<simpara>Review the <emphasis role="strong">Additional repositories</emphasis> section and note that the <emphasis role="strong">AppStream</emphasis> checkbox is selected by default.</simpara>
+<important>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">No additional configuration is necessary as the BaseOS and AppStream repositories are installed as part of the full installation image.</emphasis></simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Do not disable the AppStream repository check box if you want a full Red&#160;Hat Enterprise&#160;Linux&#160;8 installation.</emphasis></simpara>
+</listitem>
+</itemizedlist>
+</important>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Optional: Select the <emphasis role="strong">Red Hat CDN</emphasis> option to register your system, attach RHEL subscriptions, and install RHEL from the Red Hat Content Delivery Network (CDN). For more information, see the <emphasis>Registering and installing RHEL from the CDN</emphasis> section.</simpara>
+</listitem>
+<listitem>
+<simpara>Optional: Select the <emphasis role="strong">On the network</emphasis> option to download and install packages from a network location instead of local media.</simpara>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>If you do not want to download and install additional repositories from a network location, proceed to <xref linkend="configuring-software-selection_configuring-software-settings"/>.</simpara>
+</listitem>
+<listitem>
+<simpara>This option is available only when a network connection is active. See <xref linkend="network-hostname_configuring-system-settings"/> for information about how to configure network connections in the GUI.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Select the <emphasis role="strong">On the network</emphasis> drop-down menu to specify the protocol for downloading packages. This setting depends on the server that you want to use.</simpara>
+<warning>
+<simpara>The AppStream repository check box is disabled if you select <emphasis role="strong">On the network</emphasis> and then decide to revert to <emphasis role="strong">Auto-detected installation</emphasis>. You must select the AppStream check box to enable the AppStream repository.</simpara>
+</warning>
+</listitem>
+<listitem>
+<simpara>Type the server address (without the protocol) into the address field. If you choose NFS, a second input field opens where you can specify custom <emphasis role="strong">NFS mount options</emphasis>. This field accepts options listed in the <literal>nfs(5)</literal> man page.</simpara>
+<important>
+<simpara>When selecting an NFS installation source, you must specify the address with a colon (<literal>:</literal>) character separating the host name from the path. For example:</simpara>
+<screen><literal><emphasis>server.example.com</emphasis>:<emphasis>/path/to/directory</emphasis></literal></screen>
+</important>
+<note>
+<simpara>The following steps are optional and are only required if you use a proxy for network access.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Proxy setup&#8230;&#8203;</guibutton> to configure a proxy for an HTTP or HTTPS source.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Enable HTTP proxy</emphasis> check box and type the URL into the <emphasis role="strong">Proxy Host</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Use Authentication</emphasis> check box if the proxy server requires authentication.</simpara>
+</listitem>
+<listitem>
+<simpara>Type in your user name and password.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>OK</guibutton> to finish the configuration and exit the <emphasis role="strong">Proxy Setup&#8230;&#8203;</emphasis> dialog box.</simpara>
+<note>
+<simpara>If your HTTP or HTTPS URL refers to a repository mirror menu, select the required option from the <emphasis role="strong">URL type</emphasis> drop-down list. All environments and additional software packages are available for selection when you finish configuring the sources.</simpara>
+</note>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>+</guibutton> to add a repository.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>-</guibutton> to delete a repository.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <guibutton>arrow</guibutton> icon to revert the current entries to the setting when you opened the <emphasis role="strong">Installation Source</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>To activate or deactivate a repository, click the check box in the <emphasis role="strong">Enabled</emphasis> column for each entry in the list.</simpara>
+<note>
+<simpara>You can name and configure your additional repository in the same way as the primary repository on the network.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the settings and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="configuring-software-selection_configuring-software-settings">
+<title>Configuring software selection</title>
+<simpara>Use the <emphasis role="strong">Software Selection</emphasis> window to select the software packages that you require. The packages are organized by Base Environment and Additional Software.</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Base Environment</emphasis> contains predefined packages. You can select only one base environment, and availability is dependent on the installation ISO image that is used as the installation source.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Additional Software for Selected Environment</emphasis> contains additional software packages for the base environment. You can select multiple software packages.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Use a predefined environment and additional software to customize your system. However, in a standard installation, you cannot select individual packages to install. To view the packages contained in a specific environment, see the <literal role="filename"><emphasis>repository</emphasis>/repodata/*-comps-<emphasis>repository</emphasis>.<emphasis>architecture</emphasis>.xml</literal> file on your installation source media (DVD, CD, USB). The XML file contains details of the packages installed as part of a base environment. Available environments are marked by the <literal>&lt;environment&gt;</literal> tag, and additional software packages are marked by the <literal>&lt;group&gt;</literal> tag.</simpara>
+<simpara>If you are unsure about which packages to install, Red Hat recommends that you select the <emphasis role="strong">Minimal Install</emphasis> base environment. Minimal install installs a basic version of Red&#160;Hat Enterprise&#160;Linux with only a minimal amount of additional software. After the system finishes installing and you log in for the first time, you can use the <emphasis role="strong">Yum package manager</emphasis> to install additional software.
+For more information about Yum package manager, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_basic_system_settings/index/"><emphasis>Configuring basic system settings</emphasis></link> document.</simpara>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>The <literal>yum group list</literal> command lists all package groups from yum repositories. See the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_basic_system_settings/index/"><emphasis>Configuring basic system settings</emphasis></link> document for more information.</simpara>
+</listitem>
+<listitem>
+<simpara>If you need to control which packages are installed, you can use a Kickstart file and define the packages in the <literal>%packages</literal> section. See the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/"><emphasis>Performing an advanced RHEL installation</emphasis></link> document for information about installing Red&#160;Hat Enterprise&#160;Linux using Kickstart.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>You have configured the installation source.</simpara>
+</listitem>
+<listitem>
+<simpara>The installation program downloaded package metadata.</simpara>
+</listitem>
+<listitem>
+<simpara>The <emphasis role="strong">Installation Summary</emphasis> window is open.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Software Selection</emphasis>. The <emphasis role="strong">Software Selection</emphasis> window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>From the <emphasis role="strong">Base Environment</emphasis> pane, select a base environment. You can select only one base environment.</simpara>
+<note>
+<simpara>The <emphasis role="strong">Server with GUI</emphasis> base environment is the default base environment and it launches the <emphasis role="strong">Initial Setup</emphasis> application after the installation completes and you restart the system.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>From the <emphasis role="strong">Additional Software for Selected Environment</emphasis> pane, select one or more options.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the settings and return to <xref linkend="graphical-installation_graphical-installation"/>.</simpara>
+</listitem>
+</orderedlist>
+</section>
+</chapter>
+<chapter xml:id="storage-devices_graphical-installation">
+<title>Configuring storage devices</title>
+<simpara>You can install Red&#160;Hat Enterprise&#160;Linux on a large variety of storage devices. You can configure basic, locally accessible, storage devices in the <emphasis role="strong">Installation Destination</emphasis> window. Basic storage devices directly connected to the local system, such as hard disk drives and solid-state drives, are displayed in the <emphasis role="strong">Local Standard Disks</emphasis> section of the window.
+On IBM Z, this section contains activated Direct Access Storage Devices (DASDs).</simpara>
+<warning>
+<simpara>A known issue prevents DASDs configured as HyperPAV aliases from being automatically attached to the system after the installation is complete. These storage devices are available during the installation, but are not immediately accessible after you finish installing and reboot. To attach HyperPAV alias devices, add them manually to the <literal>/etc/dasd.conf</literal> configuration file of the system.</simpara>
+</warning>
+<section xml:id="storage-devices-selection_storage-devices">
+<title>Storage device selection</title>
+<simpara>The storage device selection window lists all storage devices that the installation program can access. Depending on your system and available hardware, some tabs might not be displayed.
+The devices are grouped under the following tabs:</simpara>
+<variablelist>
+<varlistentry>
+<term>Multipath Devices</term>
+<listitem>
+<simpara>Storage devices accessible through more than one path, such as through multiple SCSI controllers or Fiber Channel ports on the same system.</simpara>
+<important>
+<simpara>The installation program only detects multipath storage devices with serial numbers that are 16 or 32 characters long.</simpara>
+</important>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Other SAN Devices</term>
+<listitem>
+<simpara>Devices available on a Storage Area Network (SAN).</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Firmware RAID</term>
+<listitem>
+<simpara>Storage devices attached to a firmware RAID controller.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>NVDIMM Devices</term>
+<listitem>
+<simpara>Under specific circumstances, Red&#160;Hat Enterprise&#160;Linux 8.3 Beta can boot and run from (NVDIMM) devices in sector mode on the Intel 64 and AMD64 architectures.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>System z Devices</term>
+<listitem>
+<simpara>Storage devices, or Logical Units (LUNs), attached through the zSeries Linux FCP (Fiber Channel Protocol) driver.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+<section xml:id="configuring-storage-options_storage-devices">
+<title>Filtering storage devices</title>
+<simpara>In the storage device selection window you can filter storage devices either by their World Wide Identifier (WWID) or by the port, target, or logical unit number (LUN).</simpara>
+<formalpara>
+<title>Prerequisite</title>
+<para>The <emphasis role="strong">Installation Summary</emphasis> window is open.</para>
+</formalpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Destination</emphasis>. The <emphasis role="strong">Installation Destination</emphasis> window opens, listing all available drives.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Specialized &amp; Network Disks</emphasis> section, click <guibutton>Add a disk&#8230;</guibutton>. The storage devices selection window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Search by</emphasis> tab to search by port, target, LUN, or WWID.</simpara>
+<simpara>Searching by WWID or LUN requires additional values in the corresponding input text fields.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the option that you require from the <emphasis role="strong">Search</emphasis> drop-down menu.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Find</guibutton> to start the search. Each device is presented on a separate row with a corresponding check box.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the check box to enable the device that you require during the installation process.</simpara>
+<simpara>Later in the installation process you can choose to install Red&#160;Hat Enterprise&#160;Linux on any of the selected devices, and you can choose to mount any of the other selected devices as part of the installed system automatically.</simpara>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>Selected devices are not automatically erased by the installation process and selecting a device does not put the data stored on the device at risk.</simpara>
+</listitem>
+<listitem>
+<simpara>You can add devices to the system after installation by modifying the <literal>/etc/fstab</literal> file.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to return to the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+<important>
+<simpara>Any storage devices that you do not select are hidden from the installation program entirely. To chain load the boot loader from a different boot loader, select all the devices present.</simpara>
+</important>
+</section>
+<section xml:id="configuring-advanced-storage-options_storage-devices">
+<title>Using advanced storage options</title>
+<simpara>To use an advanced storage device, you can configure an iSCSI (SCSI over TCP/IP) target or FCoE (Fibre Channel over Ethernet) SAN (Storage Area Network).</simpara>
+<simpara>To use iSCSI storage devices for the installation, the installation program must be able to discover them as iSCSI targets and be able to create an iSCSI session to access them. Each of these steps might require a user name and password for Challenge Handshake Authentication Protocol (CHAP) authentication. Additionally, you can configure an iSCSI target to authenticate the iSCSI initiator on the system to which the target is attached (reverse CHAP), both for discovery and for the session. Used together, CHAP and reverse CHAP are called mutual CHAP or two-way CHAP. Mutual CHAP provides the greatest level of security for iSCSI connections, particularly if the user name and password are different for CHAP authentication and reverse CHAP authentication.</simpara>
+<note>
+<simpara>Repeat the iSCSI discovery and iSCSI login steps to add all required iSCSI storage. You cannot change the name of the iSCSI initiator after you attempt discovery for the first time. To change the iSCSI initiator name, you must restart the installation.</simpara>
+</note>
+<section xml:id="starting-an-iscsi-session_storage-devices">
+<title>Discovering and starting an iSCSI session</title>
+<simpara>Complete the following steps to discover and start an iSCSI session.</simpara>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>The <emphasis role="strong">Installation Summary</emphasis> window is open.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Destination</emphasis>. The <emphasis role="strong">Installation Destination</emphasis> window opens, listing all available drives.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Specialized &amp; Network Disks</emphasis> section, click <guibutton>Add a disk&#8230;&#8203;</guibutton>. The storage devices selection window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add iSCSI target&#8230;&#8203;</guibutton>. The <emphasis role="strong">Add iSCSI Storage Target</emphasis> window opens.</simpara>
+<important>
+<simpara>You cannot place the <literal>/boot</literal> partition on iSCSI targets that you have manually added using this method - an iSCSI target containing a <literal>/boot</literal> partition must be configured for use with iBFT.
+However, in instances where the installed system is expected to boot from iSCSI with iBFT configuration provided by a method other than firmware iBFT, for example using iPXE, you can remove the <literal>/boot</literal> partition restriction using the <literal role="option">inst.nonibftiscsiboot</literal> installer boot option.</simpara>
+</important>
+</listitem>
+<listitem>
+<simpara>Enter the IP address of the iSCSI target in the <emphasis role="strong">Target IP Address</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Type a name in the <emphasis role="strong">iSCSI Initiator Name</emphasis> field for the iSCSI initiator in iSCSI qualified name (IQN) format. A valid IQN entry contains the following information:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>The string <literal>iqn.</literal> (note the period).</simpara>
+</listitem>
+<listitem>
+<simpara>A date code that specifies the year and month in which your organization&#8217;s Internet domain or subdomain name was registered, represented as four digits for the year, a dash, and two digits for the month, followed by a period. For example, represent September 2010 as <literal>2010-09.</literal></simpara>
+</listitem>
+<listitem>
+<simpara>Your organization&#8217;s Internet domain or subdomain name, presented in reverse order with the top-level domain first. For example, represent the subdomain <literal>storage.example.com</literal> as <literal>com.example.storage</literal>.</simpara>
+</listitem>
+<listitem>
+<simpara>A colon followed by a string that uniquely identifies this particular iSCSI initiator within your domain or subdomain. For example, <literal>:diskarrays-sn-a8675309</literal>.</simpara>
+<simpara>A complete IQN is as follows: <literal>iqn.2010-09.storage.example.com:diskarrays-sn-a8675309</literal>. The installation program prepopulates the <literal>iSCSI Initiator Name</literal> field with a name in this format to help you with the structure. For more information about IQNs, see <emphasis><phrase role="citetitle">3.2.6. iSCSI Names</phrase></emphasis> in <emphasis><phrase role="citetitle">RFC 3720 - Internet Small Computer Systems Interface (iSCSI)</phrase></emphasis> available from tools.ietf.org and <emphasis><phrase role="citetitle">1. iSCSI Names and Addresses</phrase></emphasis> in <emphasis><phrase role="citetitle">RFC 3721 - Internet Small Computer Systems Interface (iSCSI) Naming and Discovery</phrase></emphasis> available from tools.ietf.org.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Select the <literal>Discovery Authentication Type</literal> drop-down menu to specify the type of authentication to use for iSCSI discovery. The following options are available:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>No credentials</simpara>
+</listitem>
+<listitem>
+<simpara>CHAP pair</simpara>
+</listitem>
+<listitem>
+<simpara>CHAP pair and a reverse pair</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara/>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>If you selected <literal>CHAP pair</literal> as the authentication type, enter the user name and password for the iSCSI target in the <literal>CHAP Username</literal> and <literal>CHAP Password</literal> fields.</simpara>
+</listitem>
+<listitem>
+<simpara>If you selected <literal>CHAP pair and a reverse pair</literal> as the authentication type, enter the user name and password for the iSCSI target in the <literal>CHAP Username</literal> and <literal>CHAP Password</literal> field, and the user name and password for the iSCSI initiator in the <literal>Reverse CHAP Username</literal> and <literal>Reverse CHAP Password</literal> fields.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Optionally, select the <literal>Bind targets to network interfaces</literal> check box.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Start Discovery</guibutton>.</simpara>
+<simpara>The installation program attempts to discover an iSCSI target based on the information provided.
+If discovery succeeds, the <literal>Add iSCSI Storage Target</literal> window displays a list of all iSCSI nodes discovered on the target.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the check boxes for the node that you want to use for installation.</simpara>
+<note>
+<simpara>The <literal>Node login authentication type</literal> menu contains the same options as the <literal>Discovery Authentication Type</literal> menu. However, if you need credentials for discovery authentication, use the same credentials to log in to a discovered node.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click the additional <literal>Use the credentials from discovery</literal> drop-down menu. When you provide the proper credentials, the <guibutton>Log In</guibutton> button becomes available.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Log In</guibutton> to initiate an iSCSI session.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="configuring-fcoe-parameters_storage-devices">
+<title>Configuring FCoE parameters</title>
+<simpara>Complete the following steps to configure FCoE parameters.</simpara>
+<formalpara>
+<title>Prerequisite</title>
+<para>The <emphasis role="strong">Installation Summary</emphasis> window is open.</para>
+</formalpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Destination</emphasis>. The <emphasis role="strong">Installation Destination</emphasis> window opens, listing all available drives.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Specialized &amp; Network Disks</emphasis> section, click <guibutton>Add a disk&#8230;</guibutton>. The storage devices selection window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add FCoE SAN&#8230;&#8203;</guibutton>. A dialog box opens for you to configure network interfaces for discovering FCoE storage devices.</simpara>
+</listitem>
+<listitem>
+<simpara>Select a network interface that is connected to an FCoE switch in the <literal>NIC</literal> drop-down menu.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add FCoE disk(s)</guibutton> to scan the network for SAN devices.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the required check boxes:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Use DCB:</emphasis>
+<emphasis>Data Center Bridging</emphasis> (DCB) is a set of enhancements to the Ethernet protocols designed to increase the efficiency of Ethernet connections in storage networks and clusters. Select the check box to enable or disable the installation program&#8217;s awareness of DCB. Enable this option only for network interfaces that require a host-based DCBX client. For configurations on interfaces that use a hardware DCBX client, disable the check box.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Use auto vlan:</emphasis>
+<emphasis>Auto VLAN</emphasis> is enabled by default and indicates whether VLAN discovery should be performed. If this check box is enabled, then the FIP (FCoE Initiation Protocol) VLAN discovery protocol runs on the Ethernet interface when the link configuration has been validated. If they are not already configured, network interfaces for any discovered FCoE VLANs are automatically created and FCoE instances are created on the VLAN interfaces.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Discovered FCoE devices are displayed under the <literal>Other SAN Devices</literal> tab in the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="configuring-dasd-storage-devices_storage-devices">
+<title>Configuring DASD storage devices</title>
+<simpara>Complete the following steps to configure DASD storage devices.</simpara>
+<formalpara>
+<title>Prerequisite</title>
+<para>The <emphasis role="strong">Installation Summary</emphasis> window is open.</para>
+</formalpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Destination</emphasis>. The <emphasis role="strong">Installation Destination</emphasis> window opens, listing all available drives.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Specialized &amp; Network Disks</emphasis> section, click <guibutton>Add a disk&#8230;</guibutton>. The storage devices selection window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add DASD</guibutton>. The <emphasis role="strong">Add DASD Storage Target</emphasis> dialog box opens and prompts you to specify a device number, such as <emphasis role="strong">0.0.0204</emphasis>, and attach additional DASDs that were not detected when the installation started.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the device number of the DASD that you want to attach in the <emphasis role="strong">Device number</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Start Discovery</guibutton>.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>If a DASD with the specified device number is found and if it is not already attached, the dialog box closes and the newly-discovered drives appear in the list of drives. You can then select the check boxes for the required devices and click <guibutton>Done</guibutton>. The new DASDs are available for selection, marked as <literal>DASD device 0.0.<emphasis>xxxx</emphasis></literal> in the <emphasis role="strong">Local Standard Disks</emphasis> section of the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>If you entered an invalid device number, or if the DASD with the specified device number is already attached to the system, an error message appears in the dialog box, explaining the error and prompting you to try again with a different device number.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+</section>
+<section xml:id="configuring-fcp-devices_storage-devices">
+<title>Configuring FCP devices</title>
+<simpara>FCP devices enable IBM Z to use SCSI devices rather than, or in addition to, Direct Access Storage Device (DASD) devices. FCP devices provide a switched fabric topology that enables IBM Z systems to use SCSI LUNs as disk devices in addition to traditional DASD devices.</simpara>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>The <emphasis role="strong">Installation Summary</emphasis> window is open.</simpara>
+</listitem>
+<listitem>
+<simpara>For an FCP-only installation, remove the <literal>DASD=</literal> option from the CMS configuration file or the <literal>rd.dasd=</literal> option from the parameter file to indicate that no DASD is present.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Destination</emphasis>. The <emphasis role="strong">Installation Destination</emphasis> window opens, listing all available drives.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Specialized &amp; Network Disks</emphasis> section, click <guibutton>Add a disk&#8230;</guibutton>. The storage devices selection window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add ZFCP LUN</guibutton>. The <emphasis role="strong">Add zFCP Storage Target</emphasis> dialog box opens allowing you to add a FCP (Fibre Channel Protocol) storage device.</simpara>
+<simpara>IBM Z requires that you enter any FCP device manually so that the installation program can activate FCP LUNs. You can enter FCP devices either in the graphical installation, or as a unique parameter entry in the parameter or CMS configuration file. The values that you enter must be unique to each site that you configure.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the 4 digit hexadecimal device number in the <emphasis role="strong">Device number</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the 16 digit hexadecimal World Wide Port Number (WWPN) in the <emphasis role="strong">WWPN</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the 16 digit hexadecimal FCP LUN identifier in the <emphasis role="strong">LUN</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Start Discovery</guibutton> to connect to the FCP device.</simpara>
+</listitem>
+</orderedlist>
+<simpara>The newly-added devices are displayed in the <emphasis role="strong">System z Devices</emphasis> tab of the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>Interactive creation of an FCP device is only possible in graphical mode. It is not possible to configure an FCP device interactively in text mode installation.</simpara>
+</listitem>
+<listitem>
+<simpara>Use only lower-case letters in hex values. If you enter an incorrect value and click <guibutton>Start Discovery</guibutton>, the installation program displays a warning. You can edit the configuration information and retry the discovery attempt.</simpara>
+</listitem>
+<listitem>
+<simpara>For more information about these values, consult the hardware documentation and check with your system administrator.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+</section>
+</section>
+<section xml:id="installing-to-a-nvdimm-device_storage-devices">
+<title>Installing to an NVDIMM device</title>
+<simpara>Non-Volatile Dual In-line Memory Module (NVDIMM) devices combine the performance of RAM with disk-like data persistence when no power is supplied. Under specific circumstances, Red&#160;Hat Enterprise&#160;Linux 8.3 Beta can boot and run from NVDIMM devices.</simpara>
+<section xml:id="criteria-for-using-an-nvdimm-device-as-an-installation-target_installing-to-a-nvdimm-device">
+<title>Criteria for using an NVDIMM device as an installation target</title>
+<simpara>You can install Red&#160;Hat Enterprise&#160;Linux&#160;8 to Non-Volatile Dual In-line Memory Module (NVDIMM) devices in sector mode on the Intel 64 and AMD64 architectures, supported by the <emphasis role="strong">nd_pmem</emphasis> driver.</simpara>
+<formalpara>
+<title>Conditions for using an NVDIMM device as storage</title>
+<para>To use an NVDIMM device as storage, the following conditions must be satisfied:</para>
+</formalpara>
+<itemizedlist>
+<listitem>
+<simpara>The architecture of the system is Intel 64 or AMD64.</simpara>
+</listitem>
+<listitem>
+<simpara>The NVDIMM device is configured to sector mode. The installation program can reconfigure NVDIMM devices to this mode.</simpara>
+</listitem>
+<listitem>
+<simpara>The NVDIMM device must be supported by the <emphasis role="strong">nd_pmem</emphasis> driver.</simpara>
+</listitem>
+</itemizedlist>
+<formalpara>
+<title>Conditions for booting from an NVDIMM Device</title>
+<para>Booting from an NVDIMM device is possible under the following conditions:</para>
+</formalpara>
+<itemizedlist>
+<listitem>
+<simpara>All conditions for using the NVDIMM device as storage are satisfied.</simpara>
+</listitem>
+<listitem>
+<simpara>The system uses UEFI.</simpara>
+</listitem>
+<listitem>
+<simpara>The NVDIMM device must be supported by firmware available on the system, or by an UEFI driver. The UEFI driver may be loaded from an option ROM of the device itself.</simpara>
+</listitem>
+<listitem>
+<simpara>The NVDIMM device must be made available under a namespace.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>Utilize the high performance of NVDIMM devices during booting, place the <literal role="filename">/boot</literal> and <literal role="filename">/boot/efi</literal> directories on the device. The Execute-in-place (XIP) feature of NVDIMM devices is not supported during booting and the kernel is loaded into conventional memory.</simpara>
+</section>
+<section xml:id="configuring-an-nvdimm-device-using-anaconda_installing-to-a-nvdimm-device">
+<title>Configuring an NVDIMM device using the graphical installation mode</title>
+<simpara>A Non-Volatile Dual In-line Memory Module (NVDIMM) device must be properly configured for use by Red&#160;Hat Enterprise&#160;Linux 8.3 Beta using the graphical installation.</simpara>
+<warning>
+<simpara>Reconfiguration of a NVDIMM device process destroys any data stored on the device.</simpara>
+</warning>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>A NVDIMM device is present on the system and satisfies all the other conditions for usage as an installation target.</simpara>
+</listitem>
+<listitem>
+<simpara>The installation has booted and the <emphasis role="strong">Installation Summary</emphasis> window is open.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the <emphasis role="strong">Installation Summary</emphasis> window, click <emphasis role="strong">Installation Destination</emphasis>. The <emphasis role="strong">Installation Destination</emphasis> window opens, listing all available drives.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Specialized &amp; Network Disks</emphasis> section, click <guibutton>Add a disk&#8230;&#8203;</guibutton>. The storage devices selection window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">NVDIMM Devices</emphasis> tab.</simpara>
+</listitem>
+<listitem>
+<simpara>To reconfigure a device, select it from the list.</simpara>
+<simpara>If a device is not listed, it is not in sector mode.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Reconfigure NVDIMM&#8230;&#8203;</guibutton>. A reconfiguration dialog opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Enter the sector size that you require and click <guibutton>Start Reconfiguration</guibutton>.</simpara>
+<simpara>The supported sector sizes are 512 and 4096 bytes.</simpara>
+</listitem>
+<listitem>
+<simpara>When reconfiguration completes click <guibutton>OK</guibutton>.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the device check box.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to return to the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+<simpara>The NVDIMM device that you reconfigured is displayed in the <emphasis role="strong">Specialized &amp; Network Disks</emphasis> section.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+<simpara>The NVDIMM device is now available for you to select as an installation target. Additionally, if the device meets the requirements for booting, you can set the device as a boot device.</simpara>
+</section>
+</section>
+</chapter>
+<chapter xml:id="manual-partitioning_graphical-installation">
+<title>Configuring manual partitioning</title>
+<simpara>You can use manual partitioning to configure your disk partitions and mount points and define the file system that Red&#160;Hat Enterprise&#160;Linux is installed on.</simpara>
+<note>
+<simpara>Before installation, you should consider whether you want to use partitioned or unpartitioned disk devices. For more information, see the Knowledgebase article at <link xl:href="https://access.redhat.com/solutions/163853">https://access.redhat.com/solutions/163853</link>.</simpara>
+</note>
+<simpara>An installation of Red&#160;Hat Enterprise&#160;Linux requires a minimum of one partition but Red&#160;Hat recommends using at least the following partitions or volumes: <literal>PReP</literal>, <literal>/</literal>, <literal>/home</literal>, <literal>/boot</literal>, and <literal>swap</literal>. You can also create additional partitions and volumes as you require.</simpara>
+<note>
+<simpara>An installation of Red&#160;Hat Enterprise&#160;Linux on IBM Power Systems servers requires a <literal>PReP</literal> boot partition.</simpara>
+</note>
+<warning>
+<simpara>To prevent data loss it is recommended that you back up your data before proceeding. If you are upgrading or creating a dual-boot system, you should back up any data you want to keep on your storage devices.</simpara>
+</warning>
+<section xml:id="starting-manual-partitioning_manual-partitioning">
+<title>Starting manual partitioning</title>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>The <emphasis role="strong">Installation Summary</emphasis> screen is currently displayed.</simpara>
+</listitem>
+<listitem>
+<simpara>All disks are available to the installation program.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Select disks for installation:</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Click <emphasis role="strong">Installation Destination</emphasis> to open the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the disks that you require for installation by clicking the corresponding icon. A selected disk has a check-mark displayed on it.</simpara>
+</listitem>
+<listitem>
+<simpara>Under <emphasis role="strong">Storage Configuration</emphasis>, select the <emphasis role="strong">Custom</emphasis> radio-button.</simpara>
+</listitem>
+<listitem>
+<simpara>Optional: To enable storage encryption with LUKS, select the <emphasis role="strong">Encrypt my data</emphasis> check box.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton>.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>If you selected to encrypt the storage, a dialog box for entering a disk encryption passphrase opens. Type in the LUKS passphrase:</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Enter the passphrase in the two text fields. To switch keyboard layout, use the keyboard icon.</simpara>
+<warning>
+<simpara>In the dialog box for entering the passphrase, you cannot change the keyboard layout. Select the English keyboard layout to enter the passphrase in the installation program.</simpara>
+</warning>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save Passphrase</guibutton>. The <emphasis role="strong">Manual Partitioning</emphasis> window opens.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Deleted Mount points are listed in the left-hand pane. The mount points are organized by detected operating system installations. As a result, some file systems may be displayed multiple times if a partition is shared among several installations.</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Select the mount points in the left pane; the options that can be customized are displayed in the right pane.</simpara>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>If your system contains existing file systems, ensure that enough space is available for the installation. To remove any partitions, select them in the list and click the <guibutton>-</guibutton> button.</simpara>
+<simpara>The dialog has a check box that you can use to remove all other partitions used by the system to which the deleted partition belongs.</simpara>
+</listitem>
+<listitem>
+<simpara>If there are no existing partitions and you want to create the recommended set of partitions as a starting point, select your preferred partitioning scheme from the left pane (default for Red&#160;Hat Enterprise&#160;Linux is LVM) and click the <emphasis role="strong">Click here to create them automatically</emphasis> link.</simpara>
+<simpara>A <literal>/boot</literal> partition, a <literal>/</literal> (root) volume, and a <literal>swap</literal> volume proportionate to the size of the available storage are created and listed in the left pane. These are the recommended file systems for a typical installation, but you can add additional file systems and mount points.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to confirm any changes and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="adding-a-mount-point_manual-partitioning">
+<title>Adding a mount point file system</title>
+<simpara>Complete the following steps to add multiple mount point file systems.</simpara>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>Plan for your partitions:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>To avoid problems with space allocation, first create small partitions with known fixed sizes, such as <literal>/boot</literal>, and then create the remaining partitions, letting the installation program allocate the remaining capacity to them.</simpara>
+</listitem>
+<listitem>
+<simpara>If you want to install the system on multiple disks, or if your disks differ in size and a particular partition must be created on the first disk detected by BIOS, then create these partitions first.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Click <guibutton>+</guibutton> to create a new mount point file system. The <emphasis role="strong">Add a New Mount Point</emphasis> dialog opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Select one of the preset paths from the <emphasis role="strong">Mount Point</emphasis> drop-down menu or type your own; for example, select <literal>/</literal> for the root partition or <literal>/boot</literal> for the boot partition.</simpara>
+</listitem>
+<listitem>
+<simpara>Enter the size of the file system in to the <emphasis role="strong">Desired Capacity</emphasis> field; for example, <literal>2GiB</literal>.</simpara>
+<warning>
+<simpara>If you do not specify a value in the Desired Capacity field, or if you specify a size bigger than available space, then all remaining free space is used.</simpara>
+</warning>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Add mount point</guibutton> to create the partition and return to the <emphasis role="strong">Manual Partitioning</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="configuring-a-mount-point-file-system_manual-partitioning">
+<title>Configuring a mount point file system</title>
+<simpara>This procedure describes how to set the partitioning scheme for each mount point that was created manually. The available options are <literal>Standard Partition</literal>, <literal>LVM</literal>, and <literal>LVM Thin Provisioning</literal>.</simpara>
+<note>
+<itemizedlist>
+<listitem>
+<simpara>Btfrs support has been removed in Red&#160;Hat Enterprise&#160;Linux 8.3 Beta.</simpara>
+</listitem>
+<listitem>
+<simpara>The <literal>/boot</literal> partition is always located on a standard partition, regardless of the value selected.</simpara>
+</listitem>
+</itemizedlist>
+</note>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>To change the devices that a single non-LVM mount point should be located on, select the required mount point from the left-hand pane.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Device(s)</emphasis> heading, click <guibutton>Modify&#8230;&#8203;</guibutton>. The <emphasis role="strong">Configure Mount Point</emphasis> dialog opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Select one or more devices and click <guibutton>Select</guibutton> to confirm your selection and return to the <emphasis role="strong">Manual Partitioning</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Update Settings</guibutton> to apply the changes.</simpara>
+<note>
+<simpara>Click the <guibutton>Rescan</guibutton> button (circular arrow button) to refresh all local disks and partitions; this is only required after performing advanced partition configuration outside the installation program. Clicking the <guibutton>Rescan Disks</guibutton> button resets all configuration changes made in the installation program.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>In the lower left-hand side of the <emphasis role="strong">Manual Partitioning</emphasis> window, click the <emphasis role="strong">storage device selected</emphasis> link to open the <emphasis role="strong">Selected Disks</emphasis> dialog and review disk information.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="customizing-a-partition-or-volume_manual-partitioning">
+<title>Customizing a partition or volume</title>
+<simpara>You can customize a partition or volume if you want to set specific settings.</simpara>
+<important>
+<simpara>If <literal>/usr</literal> or <literal>/var</literal> is partitioned separately from the rest of the root volume, the boot process becomes much more complex as these directories contain critical components. In some situations, such as when these directories are placed on an iSCSI drive or an FCoE location, the system is unable to boot, or hangs with a <emphasis role="strong">Device is busy</emphasis> error when powering off or rebooting.</simpara>
+<simpara>This limitation only applies to <literal>/usr</literal> or <literal>/var</literal>, not to directories below them. For example, a separate partition for <literal>/var/www</literal> works successfully.</simpara>
+</important>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the left pane, select the mount point.</simpara>
+<figure xml:id="figu-disk-partitioning-customizing-x86">
+<title>Customizing Partitions</title>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/anaconda-diskpartitioning-ddmain-custom.png"/>
+</imageobject>
+<textobject><phrase>Customizing partitions.</phrase></textobject>
+</mediaobject>
+</figure>
+</listitem>
+<listitem>
+<simpara>From the right-hand pane, you can customize the following options:</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Enter the file system mount point into the <emphasis role="strong">Mount Point</emphasis> field. For example, if a file system is the root file system, enter <literal>/</literal>; enter <literal>/boot</literal> for the <literal>/boot</literal> file system, and so on. For a swap file system, do not set the mount point as setting the file system type to <literal>swap</literal> is sufficient.</simpara>
+</listitem>
+<listitem>
+<simpara>Enter the size of the file system in the <emphasis role="strong">Desired Capacity</emphasis> field.  You can use common size units such as KiB or GiB. The default is MiB if you do not set any other unit.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the device type that you require from the drop-down <emphasis role="strong">Device Type</emphasis> menu: <literal>Standard Partition</literal>, <literal>LVM</literal>, or <literal>LVM Thin Provisioning</literal>.</simpara>
+<warning>
+<simpara>The installation program does not support overprovisioned LVM thin pools.</simpara>
+</warning>
+<note>
+<simpara><literal>RAID</literal> is available only if two or more disks are selected for partitioning. If you choose <literal>RAID</literal>, you can also set the <literal>RAID Level</literal>. Similarly, if you select <literal>LVM</literal>, you can specify the <literal>Volume Group</literal>.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Encrypt</emphasis> check box to encrypt the partition or volume. You must set a password later in the installation program. The <emphasis role="strong">LUKS Version</emphasis> drop-down menu is displayed.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the LUKS version that you require from the drop-down menu.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the appropriate file system type for this partition or volume from the <emphasis role="strong">File system</emphasis> drop-down menu.</simpara>
+<note>
+<simpara>Support for <literal>VFAT</literal> file system is not available for Linux system partitions. For example, <literal>/</literal>, <literal>/var</literal>, <literal>/usr</literal>, and so on.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Reformat</emphasis> check box to format an existing partition, or clear the <emphasis role="strong">Reformat</emphasis> check box to retain your data. The newly-created partitions and volumes must be reformatted, and the check box cannot be cleared.</simpara>
+</listitem>
+<listitem>
+<simpara>Type a label for the partition in the <emphasis role="strong">Label</emphasis> field. Use labels to easily recognize and address individual partitions.</simpara>
+</listitem>
+<listitem>
+<simpara>Type a name in the <emphasis role="strong">Name</emphasis> field.</simpara>
+<note>
+<simpara>Note that standard partitions are named automatically when they are created and you cannot edit the names of standard partitions. For example, you cannot edit the <literal>/boot</literal> name <literal>sda1</literal>.</simpara>
+</note>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Update Settings</guibutton> to apply your changes and if required, select another partition to customize. Changes are not applied until you click <guibutton>Begin Installation</guibutton> from the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+<note>
+<simpara>Click <guibutton>Reset All</guibutton> to discard your partition changes.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> when you have created and customized all file systems and mount points. If you choose to encrypt a file system, you are prompted to create a passphrase.</simpara>
+<simpara>A <emphasis role="strong">Summary of Changes</emphasis> dialog box opens, displaying a summary of all storage actions for the installation program.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Accept Changes</guibutton> to apply the changes and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="preserving-the-home-directory_manual-partitioning">
+<title>Preserving the /home directory</title>
+<simpara>In a RHEL 8 graphical installation, you can preserve the <literal role="filename">/home</literal> directory that was used on your RHEL 7 system.</simpara>
+<warning>
+<simpara>Preserving <literal role="filename">/home</literal> is only possible if the <literal role="filename">/home</literal> directory is located on a separate <literal>/home</literal> partition on your RHEL 7 system.</simpara>
+</warning>
+<simpara>Preserving the <literal role="filename">/home</literal> directory that includes various configuration settings, makes it possible that the GNOME Shell environment on the new RHEL 8 system is set in the same way as it was on your RHEL 7 system.
+Note that this applies only for users on RHEL 8 with the same user name and ID as on the previous RHEL 7 system.</simpara>
+<simpara>Complete this procedure to preserve the <literal role="filename">/home</literal> directory from your RHEL 7 system.</simpara>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>RHEL 7 system is installed on your computer.</simpara>
+</listitem>
+<listitem>
+<simpara>The <literal role="filename">/home</literal> directory is located on a separate <literal>/home</literal> partition on your RHEL 7 system.</simpara>
+</listitem>
+<listitem>
+<simpara>The RHEL 8 <literal>Installation Summary</literal> window is currently displayed.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Click <emphasis role="strong">Installation Destination</emphasis> to open the <emphasis role="strong">Installation Destination</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>Under <emphasis role="strong">Storage Configuration</emphasis>, select the <emphasis role="strong">Custom</emphasis> radio button. Click <emphasis role="strong">Done</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton>, the <emphasis role="strong">Manual Partitioning</emphasis> window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Choose the <literal>/home</literal> partition, fill in <literal>/home</literal> under <literal>Mount Point:</literal> and clear the <emphasis role="strong">Reformat</emphasis> check box.</simpara>
+<figure xml:id="figu-preserving-home-partition">
+<title>Ensuring that /home is not formatted</title>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/preserving-home-partition.png"/>
+</imageobject>
+<textobject><phrase>preserving home partition</phrase></textobject>
+</mediaobject>
+</figure>
+</listitem>
+<listitem>
+<simpara>Optional: You can also customize various aspects of the <literal>/home</literal> partition required for your RHEL 8 system as described in <xref linkend="customizing-a-partition-or-volume_manual-partitioning"/>. However, to preserve <literal>/home</literal> from your RHEL 7 system, it is necessary to clear the <emphasis role="strong">Reformat</emphasis> check box.</simpara>
+</listitem>
+<listitem>
+<simpara>After you customized all partitions according to your requirements, click <guibutton>Done</guibutton>. The <emphasis role="strong">Summary of changes</emphasis> dialog box opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Verify that the <emphasis role="strong">Summary of changes</emphasis> dialog box does not show any change for <literal>/home</literal>. This means that the <literal>/home</literal> partition is preserved.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Accept Changes</guibutton> to apply the changes, and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="creating-software-raid_manual-partitioning">
+<title>Creating software RAID</title>
+<simpara>Follow the steps in this procedure to create a Redundant Arrays of Independent Disks (RAID) device. RAID devices are constructed from multiple storage devices that are arranged to provide increased performance and, in some configurations, greater fault tolerance.</simpara>
+<simpara>A RAID device is created in one step and disks are added or removed as necessary. You can configure one RAID partition for each physical disk in your system, so the number of disks available to the installation program determines the levels of RAID device available. For example, if your system has two hard drives, you cannot create a RAID 10 device, as it requires a minimum of three separate disks.</simpara>
+<note>
+<simpara>On IBM Z, the storage subsystem uses RAID transparently. You do not have to configure software RAID manually.</simpara>
+</note>
+<itemizedlist>
+<title>Prerequisites</title>
+<listitem>
+<simpara>You have selected two or more disks for installation before RAID configuration options are visible. At least two disks are required to create a RAID device.</simpara>
+</listitem>
+<listitem>
+<simpara>You have created a mount point. By configuring a mount point, you configure the RAID device.</simpara>
+</listitem>
+<listitem>
+<simpara>You have selected the <literal role="GUI">Custom</literal> radio button on the <literal role="GUI">Installation Destination</literal> window.</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the left pane of the <emphasis role="strong">Manual Partitioning</emphasis> window, select the required partition.</simpara>
+</listitem>
+<listitem>
+<simpara>Under the <emphasis role="strong">Device(s)</emphasis> section, click <guibutton>Modify</guibutton>. The <emphasis role="strong">Configure Mount Point</emphasis> dialog box opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the disks that you want to include in the RAID device and click <guibutton>Select</guibutton>.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Device Type</emphasis> drop-down menu and select <emphasis role="strong">RAID</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">File System</emphasis> drop-down menu and select your preferred file system type.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">RAID Level</emphasis> drop-down menu and select your preferred level of RAID.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Update Settings</guibutton> to save your changes.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to apply the settings and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+<simpara>A message is displayed at the bottom of the window if the specified RAID level requires more disks.</simpara>
+</section>
+<section xml:id="creating-lvm-logical-volume_manual-partitioning">
+<title>Creating an LVM logical volume</title>
+<simpara>Logical Volume Management (LVM) presents a simple logical view of underlying physical storage space, such as hard drives or LUNs. Partitions on physical storage are represented as physical volumes that you can group together into volume groups. You can divide each volume group into multiple logical volumes, each of which is analogous to a standard disk partition. Therefore, LVM logical volumes function as partitions that can span multiple physical disks.</simpara>
+<note>
+<simpara>LVM configuration is available only in the graphical installation program.</simpara>
+</note>
+<important>
+<simpara>During text-mode installation, LVM configuration is not available. To create an LVM configuration, press <keycombo><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F2</keycap></keycombo> to use a different virtual console, and run the <literal role="command">lvm</literal> command. To return to the text-mode installation, press <keycombo><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>F1</keycap></keycombo>.</simpara>
+</important>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the left-hand pane of the <emphasis role="strong">Manual Partitioning</emphasis> window, select the mount point.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Device Type</emphasis> drop-down menu and select <literal>LVM</literal>. The <emphasis role="strong">Volume Group</emphasis> drop-down menu is displayed with the newly-created volume group name.</simpara>
+<note>
+<simpara>You cannot specify the size of the volume group&#8217;s physical extents in the configuration dialog. The size is always set to the default value of 4 MiB. If you want to create a volume group with different physical extents, you must create it manually by switching to an interactive shell and using the <literal role="command">vgcreate</literal> command, or use a Kickstart file with the <literal role="command">volgroup --pesize=<emphasis>size</emphasis></literal> command. See the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/"><emphasis>Performing an advanced RHEL installation</emphasis></link> document for more information about Kickstart.</simpara>
+</note>
+</listitem>
+</orderedlist>
+<itemizedlist>
+<title>Additional resources</title>
+<listitem>
+<simpara>For more information about LVM, see the <emphasis><link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_and_managing_logical_volumes/index">Configuring and managing logical volumes</link></emphasis> document.</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="configuring-lvm-logical-volume_manual-partitioning">
+<title>Configuring an LVM logical volume</title>
+<simpara>Follow the steps in this procedure to configure a newly-created LVM logical volume.</simpara>
+<warning>
+<simpara>Placing the <literal>/boot</literal> partition on an LVM volume is not supported.</simpara>
+</warning>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>From the left-hand pane of the <emphasis role="strong">Manual Partitioning</emphasis> window, select the mount point.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Device Type</emphasis> drop-down menu and select <literal>LVM</literal>. The <emphasis role="strong">Volume Group</emphasis> drop-down menu is displayed with the newly-created volume group name.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Modify</guibutton> to configure the newly-created volume group.</simpara>
+<simpara>The <emphasis role="strong">Configure Volume Group</emphasis> dialog box opens.</simpara>
+<note>
+<simpara>You cannot specify the size of the volume group&#8217;s physical extents in the configuration dialog. The size is always set to the default value of 4 MiB. If you want to create a volume group with different physical extents, you must create it manually by switching to an interactive shell and using the <literal role="command">vgcreate</literal> command, or use a Kickstart file with the <literal role="command">volgroup --pesize=<emphasis>size</emphasis></literal> command. See the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_installation/index/"><emphasis>Performing an advanced RHEL installation</emphasis></link> document for more information about Kickstart.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>From the <emphasis role="strong">RAID Level</emphasis> drop-down menu, select the RAID level that you require.</simpara>
+<simpara>The available RAID levels are the same as with actual RAID devices.</simpara>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Encrypt</emphasis> check box to mark the volume group for encryption.</simpara>
+</listitem>
+<listitem>
+<simpara>From the <emphasis role="strong">Size policy</emphasis> drop-down menu, select the size policy for the volume group.</simpara>
+<simpara>The available policy options are:</simpara>
+<informalexample>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Automatic</emphasis>: The size of the volume group is set automatically so that it is large enough to contain the configured logical volumes. This is optimal if you do not need free space within the volume group.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">As large as possible</emphasis>: The volume group is created with maximum size, regardless of the size of the configured logical volumes it contains. This is optimal if you plan to keep most of your data on LVM and later need to increase the size of some existing logical volumes, or if you need to create additional logical volumes within this group.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Fixed</emphasis>: You can set an exact size of the volume group. Any configured logical volumes must then fit within this fixed size. This is useful if you know exactly how large you need the volume group to be.</simpara>
+</listitem>
+</itemizedlist>
+</informalexample>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save</guibutton> to apply the settings and return to the <emphasis role="strong">Manual Partitioning</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Update Settings</guibutton> to save your changes.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+</chapter>
+<chapter xml:id="configuring-a-root-password_graphical-installation">
+<title>Configuring a root password</title>
+<simpara>You must configure a <literal>root</literal> password to begin the installation process and to log in to the administrator (also known as superuser or root) account that is used for system administration tasks. These tasks include installing and updating software packages and changing system-wide configuration such as network and firewall settings, storage options, and adding or modifying users, groups and file permissions.</simpara>
+<important>
+<itemizedlist>
+<listitem>
+<simpara>Use one or both of the following ways to gain root privileges to the installed system:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Use a root account.</simpara>
+</listitem>
+<listitem>
+<simpara>Create a user account with administrative privileges (member of the wheel group). The <literal role="systemitem">root</literal> account is always created during the installation. Switch to the administrator account only when you need to perform a task that requires administrator access.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</important>
+<warning>
+<simpara>The <literal>root</literal> account has complete control over the system. If unauthorized personnel gain access to the account, they can access or delete users' personal files.</simpara>
+</warning>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>On the <emphasis role="strong">Installation Summary</emphasis> window, select <emphasis role="strong">User Settings &gt; Root Password</emphasis>. The <emphasis role="strong">Root Password</emphasis> window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Type your password in the <emphasis role="strong">Root Password</emphasis> field.</simpara>
+<simpara>The requirements and recommendations for creating a strong root password are:</simpara>
+<informalexample>
+<itemizedlist>
+<listitem>
+<simpara><emphasis>Must</emphasis> be at least eight characters long</simpara>
+</listitem>
+<listitem>
+<simpara>May contain numbers, letters (upper and lower case) and symbols</simpara>
+</listitem>
+<listitem>
+<simpara>Is case-sensitive</simpara>
+</listitem>
+</itemizedlist>
+</informalexample>
+</listitem>
+<listitem>
+<simpara>Type the same password in the <emphasis role="strong">Confirm</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Done</guibutton> to confirm your root password and return to the <emphasis role="strong">Installation Summary</emphasis> window.</simpara>
+<note>
+<simpara>If you proceeded with a weak password, you must click <guibutton>Done</guibutton> twice.</simpara>
+</note>
+</listitem>
+</orderedlist>
+</chapter>
+<chapter xml:id="creating-a-user-account_graphical-installation">
+<title>Creating a user account</title>
+<simpara>It is recommended that you create a user account. If you do not create a user account, you must log in to the system as <literal>root</literal> directly, which is <emphasis role="strong">not</emphasis> recommended.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>On the <emphasis role="strong">Installation Summary</emphasis> window, select <emphasis role="strong">User Settings &gt; User Creation</emphasis>. The <emphasis role="strong">Create User</emphasis> window opens.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the user account name in to the <emphasis role="strong">Full name</emphasis> field, for example: John Smith.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the username in to the <emphasis role="strong">User name</emphasis> field, for example: jsmith.</simpara>
+<note>
+<simpara>The <emphasis role="strong">User name</emphasis> is used to log in from a command line; if you install a graphical environment, then your graphical login manager uses the <emphasis role="strong">Full name</emphasis>.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Make this user administrator</emphasis> check box if the user requires administrative rights (the installation program adds the user to the <literal>wheel</literal> group ).</simpara>
+<important>
+<simpara>An administrator user can use the <literal>sudo</literal> command to perform tasks that are only available to <literal>root</literal> using the user password, instead of the <literal>root</literal> password. This may be more convenient, but it can also cause a security risk.</simpara>
+</important>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Require a password to use this account</emphasis> check box.</simpara>
+<warning>
+<simpara>If you give administrator privileges to a user, verify that the account is password protected. Never give a user administrator privileges without assigning a password to the account.</simpara>
+</warning>
+</listitem>
+<listitem>
+<simpara>Type a password into the <emphasis role="strong">Password</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Type the same password into the <emphasis role="strong">Confirm password</emphasis> field.</simpara>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save Changes</guibutton> to apply the changes and return to the <emphasis role="strong">Configuration</emphasis> window.</simpara>
+</listitem>
+<listitem>
+<simpara>When the installation process is complete, click <guibutton>Reboot</guibutton> to reboot and log in to your Red&#160;Hat Enterprise&#160;Linux 8.3 Beta system.</simpara>
+</listitem>
+</orderedlist>
+<informalexample>
+
+</informalexample>
+<section xml:id="editing-advanced-user-settings_graphical-installation">
+<title>Editing advanced user settings</title>
+<simpara>Follow the steps in this procedure to edit the default settings for the user account in the <emphasis role="strong">Advanced User Configuration</emphasis> dialog box.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Edit the details in the <emphasis role="strong">Home directory</emphasis> field, if required. The field is populated by default with <literal role="filename">/home/<emphasis>username</emphasis></literal> .</simpara>
+</listitem>
+<listitem>
+<simpara>In the <emphasis role="strong">User and Groups IDs</emphasis> section you can:</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>Select the <emphasis role="strong">Specify a user ID manually</emphasis> check box and use <guibutton>+</guibutton> or <guibutton>-</guibutton> to enter the required value.</simpara>
+<note>
+<simpara>The default value is 1000. User IDs (UIDs) 0-999 are reserved by the system so they cannot be assigned to a user.</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Select the <emphasis role="strong">Specify a group ID manually</emphasis> check box and use <guibutton>+</guibutton> or <guibutton>-</guibutton> to enter the required value.</simpara>
+<note>
+<simpara>The default group name is the same as the user name, and the default Group ID (GID) is 1000. GIDs 0-999 are reserved by the system so they can not be assigned to a user group.</simpara>
+</note>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>Specify additional groups as a comma-separated list in the <emphasis role="strong">Group Membership</emphasis> field. Groups that do not already exist are created; you can specify custom GIDs for additional groups in parentheses. If you do not specify a custom GID for a new group, the new group receives a GID automatically.</simpara>
+<note>
+<simpara>The user account created always has one default group membership (the user&#8217;s default group with an ID set in the <emphasis role="strong">Specify a group ID manually</emphasis> field).</simpara>
+</note>
+</listitem>
+<listitem>
+<simpara>Click <guibutton>Save Changes</guibutton> to apply the updates and return to the <emphasis role="strong">Configuration</emphasis> window.</simpara>
+</listitem>
+</orderedlist>
+</section>
+</chapter>
+<part xml:id="installation-complete_installing-RHEL">
+<title>Completing the installation</title>
+<partintro>
+<simpara>Wait for the installation to complete. It might take a few minutes.</simpara>
+<simpara>After the installation is complete, remove any installation media if it is not ejected automatically upon reboot.</simpara>
+<simpara>Red&#160;Hat Enterprise&#160;Linux&#160;8 starts after your system&#8217;s normal power-up sequence is complete. If your system was installed on a workstation with the X Window System, applications to configure your system are launched. These applications guide you through initial configuration and you can set your system time and date, register your system with Red&#160;Hat, and more. If the X Window System is not installed, a <literal>login:</literal> prompt is displayed.</simpara>
+<simpara>To learn how to complete initial setup, register, and secure your system, see the <link xl:href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/post-installation-tasks_installing-rhel">Completing post-installation tasks</link> section of the <emphasis>Performing a standard RHEL installation</emphasis> document.</simpara>
+</partintro>
+</part>
+</book>
