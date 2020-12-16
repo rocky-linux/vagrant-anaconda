@@ -6,6 +6,9 @@ Vagrant.configure("2") do |config|
     echo -e "[Main]\nProduct=Rocky Linux\nVersion=8" > /.buildstamp
     setenforce 0
   SHELL
-  config.vm.synced_folder "anaconda/", "/usr/share/anaconda/",type: "rsync"
+  config.vm.synced_folder "anaconda/", "/usr/share/anaconda/",
+    type: "rsync",
+    rsync__args: ["--copy-unsafe-links"]
+
   config.vm.synced_folder ".", "/vagrant", disabled: true
 end
