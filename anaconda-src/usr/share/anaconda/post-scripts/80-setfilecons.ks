@@ -8,6 +8,8 @@
 #   responsibility (see https://github.com/ostreedev/ostree/pull/872 )
 # - OSTree variants of the traditional mounts if present
 
+echo "Restoring SElinux contexts..."
+
 restorecon -ir \
   /boot \
   /dev \
@@ -27,5 +29,7 @@ restorecon -ir \
   /var/run \
   /var/spool \
   /var/srv \
+
+echo "Finished."
 
 %end
